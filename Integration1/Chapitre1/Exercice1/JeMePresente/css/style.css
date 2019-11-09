@@ -11,6 +11,13 @@ body {
 
 }
 
+#accueil {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 3em;
+    width: 100%;
+}
+
 #menu {
     padding: 2em;
     height: 100%;
@@ -23,6 +30,4 @@ body {
 
 #card {
     width: 15em;
-    margin-top: 2em;
-    margin-left: 2em;
 }
