@@ -11,11 +11,18 @@ body {
 
 }
 
-#accueil {
+section {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 3em;
     width: 100%;
+}
+
+.content {
+    width: fit-content;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 #menu {
@@ -30,4 +37,10 @@ body {
 
 #card {
     width: 15em;
+}
+
+table {
+    width: fit-content;
+    margin: 0 auto;
+    transform: translate(-50%, 0);
 }
