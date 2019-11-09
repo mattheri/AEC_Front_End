@@ -19,10 +19,9 @@ section {
 }
 
 .content {
-    width: fit-content;
+    max-width: 35em;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
 }
 
 #menu {
@@ -37,6 +36,18 @@ section {
 
 #card {
     width: 15em;
+}
+
+.cheval {
+    width: 20em;
+    height: auto;
+    transform: translate(-50%, 0);
+    border-radius: 15px;
+}
+
+blockquote {
+    width: 20em;
+    transform: translate(-45%, 50%);
 }
 
 table {
