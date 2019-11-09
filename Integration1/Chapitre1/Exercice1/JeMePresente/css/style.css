@@ -45,6 +45,10 @@ section {
     border-radius: 15px;
 }
 
+ol {
+    transform: translate(-50%, 0);
+}
+
 blockquote {
     width: 20em;
     transform: translate(-45%, 50%);
