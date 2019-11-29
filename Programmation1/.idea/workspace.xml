@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c9f4685-1cad-4ff1-b2dd-2abe7e271102" name="Default Changelist" comment="" />
+    <list default="true" id="4938d265-c4de-4cf6-911a-08398ae439be" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,26 +16,20 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="ADD_SUFFIX_TO_CHERRY_PICKS_OF_PUBLISHED_COMMITS" value="false" />
-    <option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
-    <option name="WARN_ABOUT_CRLF" value="false" />
-    <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1TNhDNQZoYSKFSa5HOkc6M7S9ue" />
+  <component name="ProjectId" id="1Td2paAPQ1TPhcW9Zq1CDkgm3vh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Programmation1" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Integration1/Chapitre1/Exercice1/JeMePresente" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -54,13 +48,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7c9f4685-1cad-4ff1-b2dd-2abe7e271102" name="Default Changelist" comment="" />
-      <created>1573306339267</created>
+      <changelist id="4938d265-c4de-4cf6-911a-08398ae439be" name="Default Changelist" comment="" />
+      <created>1573775835730</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1573306339267</updated>
-      <workItem from="1573306340354" duration="13238000" />
-      <workItem from="1573775821455" duration="14000" />
+      <updated>1573775835730</updated>
+      <workItem from="1573775836870" duration="3964000" />
+      <workItem from="1573780524789" duration="1809000" />
+      <workItem from="1574383048382" duration="61000" />
     </task>
     <servers />
   </component>
