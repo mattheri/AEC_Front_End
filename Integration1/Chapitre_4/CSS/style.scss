@@ -1,0 +1,34 @@
+@import "./header";
+@import "./navbar";
+@import "./about";
+@import "./main";
+@import "./_projects";
+
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    width: fit-content;
+    margin: 2em auto;
+    font-size: 3rem;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+}
