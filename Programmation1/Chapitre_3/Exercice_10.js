@@ -3,5 +3,5 @@
 for (let i = 0; i <= 100; i = i +5) {
     const total = i * 1.09;
 
-    console.log(total);
+    document.write(`<span>${total.toFixed(2)}</span><br>`)
 };

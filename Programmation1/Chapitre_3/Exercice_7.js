@@ -11,7 +11,7 @@ function rouleJusqua (mot) {
 
     do {
         prompt("Entrez le mot secret: ");
-        console.log(incremente());
+        document.write(`<div>${incremente()}</div>`)
     } while (!estPatate);
 };
 

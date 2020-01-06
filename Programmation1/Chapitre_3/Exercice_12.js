@@ -8,6 +8,6 @@ function doubleDepotInitial () {
     return depotInitial = depotInitial * 2;
 };
 
-for (let i = 0; i <= 10; i ++) {
-    console.log(doubleDepotInitial());
+for (let i = 0; i < 10; i ++) {
+    document.write(`<span>jour ${i + 1}: ${doubleDepotInitial()} </span>`)
 }

@@ -9,7 +9,7 @@ function fahrenheitACelcius (tranche, degreeDepart, degreeFin) {
     };
 
     for (let i = degreeDepart; i <= degreeFin; i = i + tranche) {
-        console.log(convertir(i));
+        document.write(`<div>${convertir(i)}</div>`)
     };
 };
 

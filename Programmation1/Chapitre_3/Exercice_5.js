@@ -5,11 +5,9 @@ function centFoisRandom () {
     
     let zero = 0;
     
-    for (let i = 0; i <= 100; i++) {
+    for (let i = 0; i < 100; i++) {
         
-        let nombre = Math.floor(Math.random());
-
-        console.log(nombre)
+        let nombre = Math.floor(Math.random() * 2);
 
         if (nombre === 1) {
             un++
@@ -18,7 +16,7 @@ function centFoisRandom () {
         };
     };
 
-    return un, zero;
+    document.write(`nombre de zéro: ${zero}. nombre de un: ${un}`);
 }
 
-console.log(centFoisRandom());
+centFoisRandom();

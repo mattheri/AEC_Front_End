@@ -9,3 +9,22 @@ Votre algorithme doit donc générer et afficher deux nombres aléatoires de 1 �
 Il doit ensuite demander à l’utilisateur de faire ses paris. Lorsque l’utilisateur perd, 
 le nombre de prédictions remportées est affiché.  
 */
+
+let perd = false;
+let partiesGagnees = 0;
+
+while (!perd) {
+    const nombre1 = Math.floor(Math.random() * 13);
+    const nombre2 = Math.floor(Math.random() * 13);
+    
+    const nombreJoueur = Number(prompt("Entrez le nombre choisi: "));
+
+    if (!(nombreJoueur > nombre1) && !(nombreJoueur < nombre2)) {
+        perd = true;
+    } else {
+        partiesGagnees++;
+    }
+};
+
+alert(`Parties gagnées: ${partiesGagnees}`);
+

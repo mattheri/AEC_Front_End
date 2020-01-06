@@ -1,9 +1,9 @@
 const nombre = "1234";
 
 for (let i = 0; i < nombre.length; i++) {
-    console.log(Number(nombre[i]));
+    document.write(`<span>${Number(nombre[i])}</span><br>`)
 };
 
 for (let i = nombre.length - 1; i >= 0; i--) {
-    console.log(Number(nombre[i]));
+    document.write(`<span>${Number(nombre[i])}</span><br>`)
 };
