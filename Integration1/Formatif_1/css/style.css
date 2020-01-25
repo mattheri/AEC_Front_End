@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.btn {
+    border-radius: 25px;
+    margin: 30px auto;
+    text-transform: uppercase;
+    padding: 1em;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    color: white;
+}
+
+hr {
+    max-width: 50px;
+    border-width: 3px;
+    margin: 30px auto;
+}
+
+.far, .fas {
+    font-size: 5rem;
+    color: #f05f40;
+}
+
+header {
+    background-image: url("../media/desktop/startup-593327_1920.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+}
+
+header::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+header .row {
+    z-index: 1 !important;
+}
+
+.header-title {
+    color: white;
+    text-transform: uppercase;
+}
+
+.header-separator {
+    border-color: #f05f40;
+}
+
+header .btn {
+    color: white;
+    background-color: #f05f40;
+}
+
+.cta {
+    background-color: #f05f40;
+}
+
+.cta-separator {
+    max-width: 50px;
+    border-width: 3px;
+    border-color: white;
+    margin: 30px auto;
+}
+
+.cta-text {
+    color: white;
+}
+
+.cta .btn {
+    color: #f05f40;
+}
+
+.services-title {
+    color: black;
+    text-transform: capitalize;
+}
+
+.services-separator {
+    border-color: #f05f40;
+}
+
+.services h5 {
+    color: black;
+}
