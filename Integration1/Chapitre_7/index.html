@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <link rel="stylesheet" href="./css/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="container-fluid mx-0 px-0 d-flex flex-column justify-content-center">
+        <div class="row">
+            <div class="col-12 d-flex">
+                <video playsinline="playsinline" autoplay="autoplay" loop muted="muted">
+                    <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+                </video>
+
+                <div class="container h-100 align-self-center">
+                    <div class="row h100 text-center align-items-center">
+                        <div class="col-12">
+                            <button id="show-modal" data-toggle="modal" data-target="#modal" class="btn btn-dark">See why</button>
+                        </div>
+                        </div>
+                        <p class="lead mb-0">
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Snowy World</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="jumbotron bg-white">
+                        <img src="./media/winter-4727668_640.jpg" class="display-4 img-fluid rounded"></h1>
+                        <p class="lead small">Enjoy this scenery.</p>
+                        <hr class="my-4">
+                        <img src="./media/adorable-1853508_640.jpg" class="display-4 img-fluid rounded"></h1>
+                        <p class="lead small">...Or see the various fauna.</p>
+                        <hr class="my-4">
+                        <img src="./media/mountains-4695049_640.jpg" class="display-4 img-fluid rounded"></h1>
+                        <p class="lead small">And, the most important, enjoy yourself.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">Enroll</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery/jquery.min.js"></script>
+    <script src="js/js/bootstrap.min.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>
