@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import "./zone1";
+@import "./zone2";
+@import "./utils";
+@import "./nav";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+    font-family: 'Poppins', ;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
