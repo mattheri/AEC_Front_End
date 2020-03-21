@@ -84,7 +84,7 @@ function initTHREE() {
         //orbitSize, innerDiameter and facets are used to create an invisible ring to follow
 
         const geometry = new THREE.SphereGeometry(size, 32, 32);
-        const material = new THREE.MeshBasicMaterial({ map: loader.load(`./media/${planetName}.jpg`) });
+        const material = new THREE.MeshBasicMaterial({ map: loader.load(`../media/${planetName}.jpg`) });
         const planet = new THREE.Mesh(geometry, material);
         scene.add(planet);
 
