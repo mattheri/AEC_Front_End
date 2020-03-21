@@ -78,7 +78,7 @@ function initTHREE() {
     const loader = new THREE.TextureLoader();
 
     //helper to create a sphere with texture without having to type all this 8 times
-    function constructPlanet(planetName, size, orbitSize, innerDiameter, facets, distanceFromAxis) {
+    function constructPlanet(planetName, size) {
         //sets the basic geometry of a planet
         //size isn't scaled as this would be ugly and would break the whole thing, go with aesthetics
         //orbitSize, innerDiameter and facets are used to create an invisible ring to follow
@@ -87,18 +87,6 @@ function initTHREE() {
         const material = new THREE.MeshBasicMaterial({ map: loader.load(`/media/${planetName}.jpg`) });
         const planet = new THREE.Mesh(geometry, material);
         scene.add(planet);
-
-        // function createOrbit() {
-        //     const orbitGeometry = new THREE.RingGeometry(orbitSize + 0.01, innerDiameter - 0.01, facets);
-        //     const orbitMaterial = new THREE.MeshBasicMaterial({ color: 0x757064, side: THREE.DoubleSide });
-        //     const orbit = new THREE.Mesh(orbitGeometry, orbitMaterial);
-        //     orbit.name = planetName + "Orbit";
-        //     orbit.position.set(distanceFromAxis, 0, 0);
-        //     orbit.rotation.x = Math.PI / 2;
-        //     scene.add(orbit);
-        // };
-
-        // createOrbit();
 
         return planet;
     };
