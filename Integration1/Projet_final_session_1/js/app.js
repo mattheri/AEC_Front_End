@@ -1,18 +1,10 @@
-import * as THREE from "./build/three.module.js";
-let URL = "http://localhost:5500/";
-
-if (window.location.href !== URL) {
-    URL = window.location.href;
-    console.log(URL);
-};
-
-let currentlyFollowedPlanet = "scene";
+let followPlanet = "scene";
 let planet = ["scene", "mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"];
 
 (function intersectionObserver() {
     let options = {
-        rootMargin: "0px",
-        threshold: 0.4
+        rootMargin: "15px",
+        threshold: 0
     };
 
     let targets = document.querySelectorAll("section");
@@ -22,31 +14,31 @@ let planet = ["scene", "mercury", "venus", "earth", "mars", "jupiter", "saturn",
             if (entry.isIntersecting) {
                 switch (entry.target.id) {
                     case "sun":
-                        currentlyFollowedPlanet = planet[0];
+                        followPlanet = planet[0];
                         break;
                     case "mercury":
-                        currentlyFollowedPlanet = planet[1];
+                        followPlanet = planet[1];
                         break;
                     case "venus":
-                        currentlyFollowedPlanet = planet[2];
+                        followPlanet = planet[2];
                         break;
                     case "earth":
-                        currentlyFollowedPlanet = planet[3];
+                        followPlanet = planet[3];
                         break;
                     case "mars":
-                        currentlyFollowedPlanet = planet[4];
+                        followPlanet = planet[4];
                         break;
                     case "jupiter":
-                        currentlyFollowedPlanet = planet[5];
+                        followPlanet = planet[5];
                         break;
                     case "saturn":
-                        currentlyFollowedPlanet = planet[6];
+                        followPlanet = planet[6];
                         break;
                     case "uranus":
-                        currentlyFollowedPlanet = planet[7];
+                        followPlanet = planet[7];
                         break;
                     case "neptune":
-                        currentlyFollowedPlanet = planet[8];
+                        followPlanet = planet[8];
                         break;
                 }
             }
@@ -84,6 +76,7 @@ function initTHREE() {
     const loader = new THREE.TextureLoader();
 
     //helper to create a sphere with texture without having to type all this 8 times
+    let saturnRings;
     function constructPlanet(planetName, size) {
         //sets the basic geometry of a planet
         //size isn't scaled as this would be ugly and would break the whole thing, go with aesthetics
@@ -93,6 +86,16 @@ function initTHREE() {
         const material = new THREE.MeshBasicMaterial({ map: loader.load(`./media/${planetName}.jpg`) });
         const planet = new THREE.Mesh(geometry, material);
         scene.add(planet);
+
+        if (planetName === "saturn") {
+            planet.rotation.x = 100
+            const ringGeometry = new THREE.RingGeometry(0.7, 1, 64);
+            const ringMaterial = new THREE.MeshBasicMaterial({map: loader.load(`./media/saturnRings.png`), side: THREE.DoubleSide});
+            saturnRings = new THREE.Mesh(ringGeometry, ringMaterial);
+            saturnRings.rotation.x = 30;
+            planet.rotation.y = 30;
+            scene.add(saturnRings);
+        }
 
         return planet;
     };
@@ -159,43 +162,16 @@ function initTHREE() {
             x: -5,
             y: 0
         }
-    }
+    };
 
-    // function updateCameraPositionSlowly(previousPosition) {
-    //     let futurePosition = {
-    //         x: currentlyFollowedPlanet.position.x,
-    //         y: currentlyFollowedPlanet.position.y,
-    //         z: currentlyFollowedPlanet.position.z
-    //     };
-
-    //     previousPosition = {
-    //         x: previousPosition.position.x,
-    //         y: previousPosition.position.y,
-    //         z: previousPosition.position.z
-    //     };
-
-    //     for (let i in previousPosition) {
-    //         if (previousPosition[i] < futurePosition[i] || previousPosition[i] > futurePosition[i]) {
-    //             previousPosition[i] += time / 10;
-    //         };
-    //     };
-
-    //     position.x = previousPosition.x;
-    //     position.y = previousPosition.y;
-    //     position.z = previousPosition.z;
-    // }
-
-    // const position = {
-    //     x: defaultPosition.position.x,
-    //     y: defaultPosition.position.y,
-    //     z: defaultPosition.position.z
-    // };
+    let currentlyFollowedPlanet = defaultPosition;
 
     function updateCamera(time) {
 
-        switch (currentlyFollowedPlanet) {
+        let cameraPosition = camera.position.copy(camera.position);
+
+        switch (followPlanet) {
             case "mercury":
-                //updateCameraPositionSlowly(camera.position.copy(camera.position));
                 currentlyFollowedPlanet = mercury;
                 break;
             case "venus":
@@ -220,16 +196,20 @@ function initTHREE() {
                 currentlyFollowedPlanet = neptune;
                 break;
             case "scene":
-                //updateCameraPositionSlowly(camera.position.copy(camera.position));
                 currentlyFollowedPlanet = defaultPosition;
                 cameraPlacement = -1;
                 break;
-        }
+        };
 
-        camera.lookAt(currentlyFollowedPlanet.position.x, currentlyFollowedPlanet.position.y, currentlyFollowedPlanet.position.z);
-        camera.position.y = currentlyFollowedPlanet.position.y;
-        camera.position.z = currentlyFollowedPlanet.position.z;
-        camera.position.x = currentlyFollowedPlanet.position.x + cameraPlacement;
+        createjs.Tween.get(cameraPosition)
+        .to({ x: currentlyFollowedPlanet.position.x + cameraPlacement, y: currentlyFollowedPlanet.position.y, z: currentlyFollowedPlanet.position.z }, 1000)
+        .call(() => {
+            camera.position.set(currentlyFollowedPlanet.position.x + cameraPlacement, currentlyFollowedPlanet.position.y, currentlyFollowedPlanet.position.z);
+        })
+        .call(() => {
+            camera.lookAt(currentlyFollowedPlanet.position.x, currentlyFollowedPlanet.position.y, currentlyFollowedPlanet.position.z);
+        }); //very janky at this moment. Due to camera.position.set being called over and over with the tweening. Need to find a solution to call it the appropriate
+            //amount of time before setting the position more quickly.
     }
 
     //call recursively the render function in an animation frame to make the object turn
@@ -261,6 +241,7 @@ function initTHREE() {
         movePlanetOnOrbit(mars, marsOrbit, marsAxis);
         movePlanetOnOrbit(jupiter, jupiterOrbit, jupiterAxis);
         movePlanetOnOrbit(saturn, saturnOrbit, saturnAxis);
+        movePlanetOnOrbit(saturnRings, saturnOrbit, saturnAxis);
         movePlanetOnOrbit(uranus, uranusOrbit, uranusAxis);
         movePlanetOnOrbit(neptune, neptuneOrbit, neptuneAxis);
         updateCamera(time);
