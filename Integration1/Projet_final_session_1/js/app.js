@@ -1,11 +1,80 @@
 let followPlanet = "scene";
 let planet = ["scene", "mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"];
+const mobile = window.matchMedia("(max-width: 575px)");
+const tablet = window.matchMedia("(min-width: 576px)");
+const computer = window.matchMedia("(min-width: 992px)");
+
+function animateElementOnIntersecting(element) {
+    CustomEase.create('CubicBezier', '.77,0,.18,1');
+
+    const direction = element.getAttribute("data-anim");
+
+    if (direction === "right" || direction === "left") {
+        gsap.to(element, {
+            duration: 1,
+            opacity: 1,
+            x: 0,
+            ease: 'CubicBezier'
+        });
+    };
+
+    if (direction === "up" || direction === "down") {
+        gsap.to(element, {
+            duration: 1,
+            opacity: 1,
+            y: 0,
+            ease: 'CubicBezier'
+        });
+    };
+};
+
+function animateElementOutOfIntersecting(element) {
+    CustomEase.create('CubicBezier', '.77,0,.18,1');
+
+    const direction = element.getAttribute("data-anim");
+
+    if (direction === "right" || direction === "left") {
+        gsap.to(element, {
+            duration: 1,
+            opacity: 0,
+            x: -100,
+            ease: 'CubicBezier'
+        });
+    };
+
+    if (direction === "up" || direction === "down") {
+        gsap.to(element, {
+            duration: 1,
+            opacity: 0,
+            y: -100,
+            ease: 'CubicBezier'
+        });
+    };
+};
 
 (function intersectionObserver() {
-    let options = {
-        rootMargin: "15px",
-        threshold: 0
-    };
+    let options;
+
+    if (mobile) {
+        options = {
+            rootMargin: "0",
+            threshold: 0.5
+        };
+    }
+
+    if (tablet) {
+        options = {
+            rootMargin: "15px",
+            threshold: 0
+        };
+    }
+
+    if (computer) {
+        options = {
+            rootMargin: "15px",
+            threshold: 0.3
+        };
+    }
 
     let targets = document.querySelectorAll("section");
 
@@ -46,6 +115,22 @@ let planet = ["scene", "mercury", "venus", "earth", "mars", "jupiter", "saturn",
     }, options);
 
     targets.forEach(t => observer.observe(t));
+
+    const elements = document.querySelectorAll(".animate");
+    
+    const elementsObserver = new IntersectionObserver(function (el, observer) {
+        el.forEach(element => {
+            if (element.isIntersecting) {
+                animateElementOnIntersecting(element.target);
+            };
+
+            if (!element.isIntersecting) {
+                animateElementOutOfIntersecting(element.target);
+            };
+        });
+    }, options);
+
+    elements.forEach(element => elementsObserver.observe(element));
 })();
 
 function initTHREE() {
@@ -165,6 +250,7 @@ function initTHREE() {
     };
 
     let currentlyFollowedPlanet = defaultPosition;
+    let num = 0;
 
     function updateCamera(time) {
 
@@ -198,18 +284,39 @@ function initTHREE() {
             case "scene":
                 currentlyFollowedPlanet = defaultPosition;
                 cameraPlacement = -1;
+                camera.name = followPlanet;
                 break;
         };
 
-        createjs.Tween.get(cameraPosition)
-        .to({ x: currentlyFollowedPlanet.position.x + cameraPlacement, y: currentlyFollowedPlanet.position.y, z: currentlyFollowedPlanet.position.z }, 1000)
-        .call(() => {
+        if (num <= (300)) {
+            if (camera.name !== followPlanet) {
+                createjs.Tween.get(cameraPosition)
+                .to({ x: currentlyFollowedPlanet.position.x + cameraPlacement, y: currentlyFollowedPlanet.position.y, z: currentlyFollowedPlanet.position.z }, 1000)
+                .call(function() {
+                    camera.position.set(currentlyFollowedPlanet.position.x + cameraPlacement, currentlyFollowedPlanet.position.y, currentlyFollowedPlanet.position.z);
+                })
+                .call(function () {
+                    camera.lookAt(currentlyFollowedPlanet.position.x, currentlyFollowedPlanet.position.y, currentlyFollowedPlanet.position.z);
+                }).on("complete", function () {
+                    num++
+                    if (followPlanet === "mercury" || followPlanet === "venus" || followPlanet === "earth" || followPlanet === "mars") {
+                        if (num === (200)) {
+                            camera.name = followPlanet;
+                        }
+                    } else {
+                        if (num === (300)) {
+                            camera.name = followPlanet;
+                        }
+                    }
+                })
+            }
+        }
+
+        if (camera.name === followPlanet) {
             camera.position.set(currentlyFollowedPlanet.position.x + cameraPlacement, currentlyFollowedPlanet.position.y, currentlyFollowedPlanet.position.z);
-        })
-        .call(() => {
-            camera.lookAt(currentlyFollowedPlanet.position.x, currentlyFollowedPlanet.position.y, currentlyFollowedPlanet.position.z);
-        }); //very janky at this moment. Due to camera.position.set being called over and over with the tweening. Need to find a solution to call it the appropriate
-            //amount of time before setting the position more quickly.
+            num = 0;
+        }
+        
     }
 
     //call recursively the render function in an animation frame to make the object turn
@@ -219,7 +326,7 @@ function initTHREE() {
             const canvas = document.querySelector("#THREE");
             camera.aspect = canvas.clientWidth / canvas.clientHeight;
             camera.updateProjectionMatrix();
-          }
+        }
         //set the rotation of all spheres
         star.rotation.x = time / 10;
         star.rotation.z = time / 10;

@@ -12,6 +12,13 @@ body {
     height: 150vh;
 }
 
+header {
+    background-image: url("../media/casey-horner-RmoWqDCqN2E-unsplash.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
 article::selection, h1::selection, h2::selection, h3::selection {
     background-color: rgba(255, 0, 0, 0.575);
     color: black;
@@ -29,6 +36,8 @@ section {
 
 section > h3, p, article {
     color: rgba(255, 255, 255, 0.575);
+    opacity: 0;
+    transform: translateY(50%);
 }
 
 #THREE {
