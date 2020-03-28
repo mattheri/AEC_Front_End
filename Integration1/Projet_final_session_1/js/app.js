@@ -57,8 +57,8 @@ function animateElementOutOfIntersecting(element) {
 
     if (mobile) {
         options = {
-            rootMargin: "0",
-            threshold: 0.5
+            rootMargin: "0px",
+            threshold: 0.25
         };
     }
 
@@ -116,21 +116,21 @@ function animateElementOutOfIntersecting(element) {
 
     targets.forEach(t => observer.observe(t));
 
-    const elements = document.querySelectorAll(".animate");
+    // const elements = document.querySelectorAll(".animate");
     
-    const elementsObserver = new IntersectionObserver(function (el, observer) {
-        el.forEach(element => {
-            if (element.isIntersecting) {
-                animateElementOnIntersecting(element.target);
-            };
+    // const elementsObserver = new IntersectionObserver(function (el, observer) {
+    //     el.forEach(element => {
+    //         if (element.isIntersecting) {
+    //             animateElementOnIntersecting(element.target);
+    //         };
 
-            if (!element.isIntersecting) {
-                animateElementOutOfIntersecting(element.target);
-            };
-        });
-    }, options);
+    //         if (!element.isIntersecting) {
+    //             animateElementOutOfIntersecting(element.target);
+    //         };
+    //     });
+    // }, options);
 
-    elements.forEach(element => elementsObserver.observe(element));
+    // elements.forEach(element => elementsObserver.observe(element));
 })();
 
 function initTHREE() {
@@ -165,7 +165,6 @@ function initTHREE() {
     function constructPlanet(planetName, size) {
         //sets the basic geometry of a planet
         //size isn't scaled as this would be ugly and would break the whole thing, go with aesthetics
-        //orbitSize, innerDiameter and facets are used to create an invisible ring to follow
 
         const geometry = new THREE.SphereGeometry(size, 32, 32);
         const material = new THREE.MeshBasicMaterial({ map: loader.load(`./media/${planetName}.jpg`) });
@@ -188,6 +187,7 @@ function initTHREE() {
     function movePlanetOnOrbit(planet, orbitTime, distanceFromAxis) {
         //date is used to get a very stable yet different data each time to simulate the speed of the planet
         //much maths
+        //orbit time is the orbit in days
         //distance from axis actually sets the planet on the plane, distanced from the middle which is the sun
         planet.position.x =
             Math.cos(Date.now() * (1.0 / (orbitTime * 200)) + 10) * distanceFromAxis;

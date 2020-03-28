@@ -36,12 +36,23 @@ section {
 
 section > h3, p, article {
     color: rgba(255, 255, 255, 0.575);
-    opacity: 0;
-    transform: translateY(50%);
+    /* opacity: 0;
+    transform: translateY(50%); */
 }
 
 #THREE {
     max-height: 28vh;
+}
+
+.sections-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 1px;
+    height: 100vh;
+}
+
+.sections-container::-webkit-scrollbar {
+    opacity: 0;
 }
 
 @media only screen and (min-width: 576px) {
