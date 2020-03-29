@@ -9,7 +9,6 @@ let length;
 function validate(state, length) {
     let min = 3;
     let max = 12;
-    console.log(length);
     if (state === "short") {
         $("#validation").text(`Il vous manque encore ${min - length} ${min - length === 1 ? "lettre" : "lettres"}`);
     };
@@ -305,6 +304,7 @@ function showModal(path, fileLetter, previousPath, image) {
     $("#selection-modal").on("hide.bs.modal", function () {
         fileLetter.length = 0;
         path = "";
+        image = "";
         $(".modal-images").remove();
         $(".carousel-item").remove();
         $(".active").remove();
