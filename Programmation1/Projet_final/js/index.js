@@ -202,10 +202,19 @@ $("#text-input").keydown(function (event) {
 ******************************************************************/
 async function getMaximumNumberOfImages(path, fileLetter) {
     let numberOfImages = 0;
+    // const f = fetch(`http://7894f04b.ngrok.io/${path}/${fileLetter[3]}`);
+    // const response = await f;
+    // const numberOfImages = await response.json();
+    // return numberOfImages;
     let num = 0;
     
-    //fetch les images. Aussitôt que je retourne une erreur, cela veut dire que je n'ai plus d'images.
-    //le nombre de fois que j'ai fetché est donc le nombre d'images que j'ai
+    /******************************************************************************************************************************** 
+    * fetch les images. Aussitôt que je retourne une erreur, cela veut dire que je n'ai plus d'images.                              *
+    * le nombre de fois que j'ai fetché est donc le nombre d'images que j'ai.                                                       *
+    * Au mieux c'est un hack, au pire c'est une très mauvaise pratique. La bonne façon serait d'utiliser Node.js pour lire          *
+    * le nombre de fichier dans un path. J'ai implémenté la solution mais un serveur Node.js ne fonctionne pas sur Github Pages :(  *
+    * le serveur est localisé dans le fichier server.js.                                                                            *
+    ********************************************************************************************************************************/
     while (!numberOfImages) {
         num++;
         let response = fetch(`${path}/${fileLetter[3]}${num}.jpg`);
