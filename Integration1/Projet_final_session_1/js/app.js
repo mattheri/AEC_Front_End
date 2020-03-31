@@ -186,7 +186,7 @@ function initTHREE() {
 
     function movePlanetOnOrbit(planet, orbitTime, distanceFromAxis) {
         //date is used to get a very stable yet different data each time to simulate the speed of the planet
-        //much maths
+        //formula to create a circle around an axis
         //orbit time is the orbit in days
         //distance from axis actually sets the planet on the plane, distanced from the middle which is the sun
         planet.position.x =
@@ -357,10 +357,7 @@ function initTHREE() {
         requestAnimationFrame(render);
     };
 
-    requestAnimationFrame(render);  //can be wonky on Safari if css is 
-                                    //used directly on the canvas because of weird placement in event loop
-    
-    
+    requestAnimationFrame(render);
 };
 
 initTHREE();
