@@ -21,6 +21,10 @@ header {
     background-position: center;
 }
 
+#lunes-header {
+    background-image: url("../media/europa.jpg");
+}
+
 #hubble {
     background-image: url("../media/hubble-in-space.jpg");
     height: 100vh;
