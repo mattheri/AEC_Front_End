@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="rectangle" class="container">
+        <p>Rectangle</p>
+        <svg>
+            <rect x="20" y="50" style="width: 100%;"/>
+        </svg>
+    </div>
+    <div id="circle" class="container">
+        <p>Circle</p>
+        <svg>
+            <circle cx="115" cy="100" r="60" />
+        </svg>
+    </div>
+    <div id="ellipse" class="container">
+        <p>Ellipse</p>
+        <svg>
+            <ellipse cx="115" cy="100" rx="60" ry="50" />
+        </svg>
+    </div>
+    <div id="line" class="container">
+        <p>Line</p>
+        <svg>
+            <line x1="90" y1="90" x2="120" y2="120" />
+        </svg>
+    </div>
+    <div id="polyline" class="container">
+        <p>Polyine</p>
+        <svg>
+            <polyline points="10,50 11,31 88,52 65,112 150,100" />
+        </svg>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
