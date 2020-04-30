@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/css/main.b9b6edf0.chunk.css",
+    "main.js": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/js/main.38d3504d.chunk.js",
+    "main.js.map": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/js/main.38d3504d.chunk.js.map",
+    "runtime-main.js": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/js/runtime-main.e0387cde.js",
+    "runtime-main.js.map": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/js/runtime-main.e0387cde.js.map",
+    "static/css/2.69121389.chunk.css": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/css/2.69121389.chunk.css",
+    "static/js/2.977e46fc.chunk.js": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/js/2.977e46fc.chunk.js",
+    "static/js/2.977e46fc.chunk.js.map": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/js/2.977e46fc.chunk.js.map",
+    "index.html": "/AEC_Front_End/Programmation2/seriesquebecoise/build/index.html",
+    "precache-manifest.4597eea6dcf14931d595d59bb13be9e6.js": "/AEC_Front_End/Programmation2/seriesquebecoise/build/precache-manifest.4597eea6dcf14931d595d59bb13be9e6.js",
+    "service-worker.js": "/AEC_Front_End/Programmation2/seriesquebecoise/build/service-worker.js",
+    "static/css/2.69121389.chunk.css.map": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/css/2.69121389.chunk.css.map",
+    "static/css/main.b9b6edf0.chunk.css.map": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/css/main.b9b6edf0.chunk.css.map",
+    "static/js/2.977e46fc.chunk.js.LICENSE.txt": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/js/2.977e46fc.chunk.js.LICENSE.txt",
+    "static/media/19-2.jpg": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/media/19-2.532147e8.jpg",
+    "static/media/district31.jpg": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/media/district31.f69f37e6.jpg",
+    "static/media/dugpdcv.jpg": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/media/dugpdcv.b4da43db.jpg",
+    "static/media/planB.jpg": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/media/planB.eaaf49c5.jpg",
+    "static/media/planBS2.jpg": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/media/planBS2.a21bf770.jpg",
+    "static/media/serieNoire.jpg": "/AEC_Front_End/Programmation2/seriesquebecoise/build/static/media/serieNoire.8104c48b.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e0387cde.js",
+    "static/css/2.69121389.chunk.css",
+    "static/js/2.977e46fc.chunk.js",
+    "static/css/main.b9b6edf0.chunk.css",
+    "static/js/main.38d3504d.chunk.js"
+  ]
+}
