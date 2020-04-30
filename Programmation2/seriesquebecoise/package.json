@@ -2,7 +2,7 @@
   "name": "seriesquebecoise",
   "version": "0.1.0",
   "private": false,
-  "homepage": "http://mattheri.github.io/AEC_Front_End/Programmation2/seriesquebecoise/",
+  "homepage": "http://mattheri.github.io/AEC_Front_End/Programmation2/seriesquebecoise/public/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
