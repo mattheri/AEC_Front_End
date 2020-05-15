@@ -54,7 +54,7 @@ code {
   transition: all 250ms linear;
 }
 
-.btn {
+.btn-custom {
   width: 3rem !important;
   height: 3rem !important;
   border-radius: 50% !important;

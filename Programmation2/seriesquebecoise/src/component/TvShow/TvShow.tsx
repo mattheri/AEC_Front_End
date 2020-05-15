@@ -17,8 +17,8 @@ export const TvShow = (props: TvShowProps) => {
         <Col xs={2} className="tv-show">
             <Container className="text-center">
                 <div className="image-overlay">
-                    <button onClick={onClick} className="btn add">+</button>
-                    <button onClick={onClick} className="btn remove">-</button>
+                    <button onClick={onClick} className="btn-custom add">+</button>
+                    <button onClick={onClick} className="btn-custom remove">-</button>
                 </div>
                 <Image
                      src={url} alt={title} fluid />
