@@ -1,0 +1,9 @@
+body {
+    height: 100vh;
+    background-color: black;
+}
+
+button:disabled {
+    background-color: white !important;
+    color: grey !important;
+}

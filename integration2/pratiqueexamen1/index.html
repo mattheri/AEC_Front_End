@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/index.js" defer></script>
+    <title>Examen 1</title>
+</head>
+<body>
+    <section class="container-fluid">
+        <div class="row d-flex">
+            <div class="col-8 m-5">
+                <div class="row">
+                    <div class="col-12 text-white px-5 py-3 bg-dark my-2 mx-2">
+                        <section class="py-3">
+                            <h1>Participez à l'avenir de la race humaine</h1>
+                            <p>Inscrivez-vous à la prochaine mission de colonisation sur Mars !</p>
+                            <hr class="bg-white">
+                        </section>
+                        <form>
+                            <div class="form-row py-4">
+                                <div class="col-2 d-flex">
+                                    <label for="lastname" class="input-group-append">Identification</label>
+                                    <p class="text-danger pl-2">&ast;</p>
+                                </div>
+                                <div class="col-3">
+                                    <input type="text" id="lastname" for="lastname" class="form-control">
+                                    <small>Nom</small>
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" id="name" for="name" class="form-control">
+                                    <small>Prénom</small>
+                                </div>
+                            </div>
+                            <div class="form-row py-4">
+                                <div class="col-2 d-flex">
+                                    <label for="lastname" class="input-group-append">Date de naissance</label>
+                                    <p class="text-danger pl-2">&ast;</p>
+                                </div>
+                                <div class="col-9">
+                                    <input type="date" id="dob" for="dob" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-row py-4">
+                                <div class="col-2 d-flex">
+                                    <label for="lastname" class="input-group-append">Numéro de téléphone</label>
+                                    <p class="text-danger pl-2 p-0 m-0">&ast;</p>
+                                </div>
+                                <div class="col-2">
+                                    <input type="text" id="code-regional" for="code-regional" class="form-control">
+                                    <small>Code régional</small>
+                                </div>
+                                <div>-</div>
+                                <div class="col-3">
+                                    <input type="text" id="telephone" for="telephone" class="form-control">
+                                    <small>Numéro de téléphone</small>
+                                </div>
+                            </div>
+                            <div class="form-row py-4">
+                                <div class="col-2 d-flex">
+                                    <label for="lastname" class="input-group-append">E-mail</label>
+                                    <p class="text-danger pl-2">&ast;</p>
+                                </div>
+                                <div class="col-7">
+                                    <input type="email" id="email" for="email" class="form-control">
+                                    <small>exmple@exemple.com</small>
+                                </div>
+                            </div>
+                            <div class="form-row pt-4 pb-2">
+                                <div class="col-2 d-flex">
+                                    <label for="lastname" class="input-group-append">Adresse</label>
+                                    <p class="text-danger pl-2">&ast;</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="numero-porte" for="numero-porte" class="form-control">
+                                    <small>Numéro de porte</small>
+                                </div>
+                            </div>
+                            <div class="form-row py-2">
+                                <div class="col-2 d-flex">
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="numero-porte" for="numero-porte" class="form-control">
+                                    <small>Numéro d'appartement</small>
+                                </div>
+                            </div>
+                            <div class="form-row py-2">
+                                <div class="col-2 d-flex">
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" id="numero-porte" for="numero-porte" class="form-control">
+                                    <small>Ville</small>
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" id="numero-porte" for="numero-porte" class="form-control">
+                                    <small>État/Province</small>
+                                </div>
+                            </div>
+                            <div class="form-row py-2">
+                                <div class="col-2 d-flex">
+                                </div>
+                                <div class="col-4">
+                                    <input type="text" id="numero-porte" for="numero-porte" class="form-control">
+                                    <small>Code Postal</small>
+                                </div>
+                            </div>
+                            <div class="form-row py-4">
+                                <div class="col-2 d-flex">
+                                    <label for="lastname" class="input-group-append">Sexe</label>
+                                    <p class="text-danger pl-2 p-0 m-0">&ast;</p>
+                                </div>
+                                <div class="col-3">
+                                    <select class="custom-select" id="sexe">
+                                        <option value="Homme">Homme</option>
+                                        <option value="Femme">Femme</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row py-4">
+                                <div class="col-2 d-flex">
+                                    <label for="lastname" class="input-group-append">Métier</label>
+                                    <p class="text-danger pl-2 p-0 m-0">&ast;</p>
+                                </div>
+                                <div class="col-3">
+                                    <input type="text" id="code-regional" for="code-regional" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-row py-4">
+                                <div class="col-2 d-flex">
+                                    <label for="lastname" class="input-group-append">Présentation</label>
+                                </div>
+                                <div class="col-9">
+                                    <textarea class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row py-5">
+                            <div class="col-2"></div>
+                            <div class="col">
+                                <button class="btn" disabled>Soumettre ma candidature</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 overflow-hidden">
+                <div class="row py-5">
+                    <canvas id="canvas" class="py-5 px-5"></canvas>
+                </div>
+                <div class="row h-25">
+                    <svg>
+                        <polygon stroke="white" fill="white" />
+                        <rect stroke="white" fill="white" />
+                        <text fill="white" font-family="Lucida Console, Monaco, monospace">Destination</text>
+                    </svg>
+                </div>
+                <div class="row py-5">
+                    <div class="ml-auto mr-auto mt-5 mb-5" id="paypal-button-container"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap/bootstrap.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=Abr3BUKI50ndRyfPY6UfmO9wMSRm7k6oFlivCZEuEjVqqtGvv3eLoqjoMens9awWHRDhXpnqTSii1tz3"></script>
+</body>
+</html>
