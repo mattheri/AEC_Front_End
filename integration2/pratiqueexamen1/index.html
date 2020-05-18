@@ -1,3 +1,7 @@
+<!-- index.html
+     Modifié par: Mathieu Thériault
+     Dernière modification: 5/18/2020 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,55 +31,55 @@
                                     <p class="text-danger pl-2">&ast;</p>
                                 </div>
                                 <div class="col-3">
-                                    <input type="text" id="lastname" for="lastname" class="form-control">
+                                    <input type="text" id="lastname" name="lastname" class="form-control" required>
                                     <small>Nom</small>
                                 </div>
                                 <div class="col-4">
-                                    <input type="text" id="name" for="name" class="form-control">
+                                    <input type="text" id="name" name="name" class="form-control" required>
                                     <small>Prénom</small>
                                 </div>
                             </div>
                             <div class="form-row py-4">
                                 <div class="col-2 d-flex">
-                                    <label for="lastname" class="input-group-append">Date de naissance</label>
+                                    <label for="dob" class="input-group-append">Date de naissance</label>
                                     <p class="text-danger pl-2">&ast;</p>
                                 </div>
                                 <div class="col-9">
-                                    <input type="date" id="dob" for="dob" class="form-control">
+                                    <input type="date" id="dob" name="dob" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-row py-4">
                                 <div class="col-2 d-flex">
-                                    <label for="lastname" class="input-group-append">Numéro de téléphone</label>
+                                    <label for="code-regional" class="input-group-append">Numéro de téléphone</label>
                                     <p class="text-danger pl-2 p-0 m-0">&ast;</p>
                                 </div>
                                 <div class="col-2">
-                                    <input type="text" id="code-regional" for="code-regional" class="form-control">
+                                    <input type="text" id="code-regional" name="code-regional" class="form-control" maxlength="3" required>
                                     <small>Code régional</small>
                                 </div>
                                 <div>-</div>
                                 <div class="col-3">
-                                    <input type="text" id="telephone" for="telephone" class="form-control">
+                                    <input type="text" id="telephone" name="telephone" class="form-control" maxlength="7" pattern="\d+" required>
                                     <small>Numéro de téléphone</small>
                                 </div>
                             </div>
                             <div class="form-row py-4">
                                 <div class="col-2 d-flex">
-                                    <label for="lastname" class="input-group-append">E-mail</label>
+                                    <label for="email" class="input-group-append">E-mail</label>
                                     <p class="text-danger pl-2">&ast;</p>
                                 </div>
                                 <div class="col-7">
-                                    <input type="email" id="email" for="email" class="form-control">
+                                    <input type="email" id="email" name="email" class="form-control" required>
                                     <small>exmple@exemple.com</small>
                                 </div>
                             </div>
                             <div class="form-row pt-4 pb-2">
                                 <div class="col-2 d-flex">
-                                    <label for="lastname" class="input-group-append">Adresse</label>
+                                    <label for="numero-porte" class="input-group-append">Adresse</label>
                                     <p class="text-danger pl-2">&ast;</p>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" id="numero-porte" for="numero-porte" class="form-control">
+                                    <input type="text" id="numero-porte" name="numero-porte" class="form-control" required>
                                     <small>Numéro de porte</small>
                                 </div>
                             </div>
@@ -83,7 +87,7 @@
                                 <div class="col-2 d-flex">
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" id="numero-porte" for="numero-porte" class="form-control">
+                                    <input type="text" id="numero-appartement" name="numero-appartement" class="form-control">
                                     <small>Numéro d'appartement</small>
                                 </div>
                             </div>
@@ -91,56 +95,57 @@
                                 <div class="col-2 d-flex">
                                 </div>
                                 <div class="col-4">
-                                    <input type="text" id="numero-porte" for="numero-porte" class="form-control">
+                                    <input type="text" id="ville" name="ville" class="form-control" required>
                                     <small>Ville</small>
                                 </div>
                                 <div class="col-4">
-                                    <input type="text" id="numero-porte" for="numero-porte" class="form-control">
+                                    <input type="text" id="etat-province" name="etat-province" class="form-control" required>
                                     <small>État/Province</small>
                                 </div>
                             </div>
-                            <div class="form-row py-2">
+                            <div class="form-row pt-2 pb-4">
                                 <div class="col-2 d-flex">
                                 </div>
                                 <div class="col-4">
-                                    <input type="text" id="numero-porte" for="numero-porte" class="form-control">
+                                    <input type="text" id="code-postal" for="code-postal" class="form-control" required>
                                     <small>Code Postal</small>
                                 </div>
                             </div>
                             <div class="form-row py-4">
                                 <div class="col-2 d-flex">
-                                    <label for="lastname" class="input-group-append">Sexe</label>
+                                    <label for="sexe" class="input-group-append">Sexe</label>
                                     <p class="text-danger pl-2 p-0 m-0">&ast;</p>
                                 </div>
-                                <div class="col-3">
-                                    <select class="custom-select" id="sexe">
+                                <div class="col-4">
+                                    <input list="sexe" id="input-sexe" name="input-sexe" class="form-control" />
+                                    <datalist id="sexe" name="sexe">
                                         <option value="Homme">Homme</option>
                                         <option value="Femme">Femme</option>
-                                    </select>
+                                    </datalist>
                                 </div>
                             </div>
                             <div class="form-row py-4">
                                 <div class="col-2 d-flex">
-                                    <label for="lastname" class="input-group-append">Métier</label>
+                                    <label for="metier" class="input-group-append">Métier</label>
                                     <p class="text-danger pl-2 p-0 m-0">&ast;</p>
                                 </div>
-                                <div class="col-3">
-                                    <input type="text" id="code-regional" for="code-regional" class="form-control">
+                                <div class="col-5">
+                                    <input type="text" id="metier" name="metier" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-row py-4">
                                 <div class="col-2 d-flex">
-                                    <label for="lastname" class="input-group-append">Présentation</label>
+                                    <label for="presentation" class="input-group-append">Présentation</label>
                                 </div>
                                 <div class="col-9">
-                                    <textarea class="form-control"></textarea>
+                                    <textarea class="form-control" id="presentation" name="presentation"></textarea>
                                 </div>
                             </div>
                         </form>
                         <div class="row py-5">
                             <div class="col-2"></div>
                             <div class="col">
-                                <button class="btn" disabled>Soumettre ma candidature</button>
+                                <button class="btn btn-success" id="submit-button" disabled>Soumettre ma candidature</button>
                             </div>
                         </div>
                     </div>
@@ -157,8 +162,8 @@
                         <text fill="white" font-family="Lucida Console, Monaco, monospace">Destination</text>
                     </svg>
                 </div>
-                <div class="row py-5">
-                    <div class="ml-auto mr-auto mt-5 mb-5" id="paypal-button-container"></div>
+                <div class="row py-5 d-flex flex-column h-25">
+                    <div class="justify-content-end" id="paypal-button-container"></div>
                 </div>
             </div>
         </div>

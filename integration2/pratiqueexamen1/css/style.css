@@ -1,3 +1,7 @@
+/*  style.css
+    Modifié par: Mathieu Thériault
+    Dernière modification: 5/18/2020 */
+
 body {
     height: 100vh;
     background-color: black;
@@ -6,4 +10,8 @@ body {
 button:disabled {
     background-color: white !important;
     color: grey !important;
+}
+
+#paypal-button-container {
+    margin-top: auto;
 }

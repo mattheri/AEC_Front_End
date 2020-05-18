@@ -1,3 +1,6 @@
+/*  index.js
+    Modifié par: Mathieu Thériault
+    Dernière modification: 5/18/2020 */
 
 /******************************************
 Retourne la largeur et hauteur du parent */
@@ -22,9 +25,8 @@ function keepAspectRatioOnResize(node, callback) {
 Crée le canvas de la planète Mars. Retourne ce canvas */
 function createCanvas(width, height) {
   const canvas = document.getElementById("canvas");
-  console.log(height);
   width = width || getParentNodeDimensions(canvas).width;
-  height = height / 2 || getParentNodeDimensions(canvas).height;
+  height = height / 1.56 || getParentNodeDimensions(canvas).height;
   canvas.setAttribute("width", width);
   canvas.setAttribute("height", height);
   const ctx = canvas.getContext("2d");
@@ -53,7 +55,7 @@ function createCanvas(width, height) {
   }
   addText();
 
-  let num = 40;
+  let numberOfStars = 40;
 
   function addStars() {
     const star = new Path2D();
@@ -67,7 +69,7 @@ function createCanvas(width, height) {
     ctx.globalCompositeOperation = "destination-over";
   };
 
-  while (num--) {
+  while (numberOfStars--) {
     addStars();
   }
 
@@ -85,25 +87,37 @@ function setSVGPoints(width, height) {
   const triangle = svg.querySelector("polygon");
   const rectangle = svg.querySelector("rect");
   const text = svg.querySelector("text");
-  const trianglePoints = `${width / 3}, ${height / 2} ${width / 1.5}, ${height / 2}, ${width / 2}, 0`;
-  triangle.setAttribute("points", trianglePoints);
-  const rectanglePoints = {
-    x: width / 2.4,
-    y: height / 3,
-    width: width / 6,
-    height: height / 2
+
+  function createSVGTriangle() {
+    const trianglePoints = `${width / 3}, ${height / 2} ${width / 1.5}, ${height / 2}, ${width / 2}, 0`;
+    triangle.setAttribute("points", trianglePoints);
   };
-  rectangle.setAttribute("x", rectanglePoints.x);
-  rectangle.setAttribute("y", rectanglePoints.y);
-  rectangle.setAttribute("width", rectanglePoints.width);
-  rectangle.setAttribute("height", rectanglePoints.height);
-  const textPoints = {
-    x: width / 4,
-    y: height
+  createSVGTriangle();
+
+  function createSVGRectangle() {
+    const rectanglePoints = {
+      x: width / 2.4,
+      y: height / 3,
+      width: width / 6,
+      height: height / 2
+    };
+    rectangle.setAttribute("x", rectanglePoints.x);
+    rectangle.setAttribute("y", rectanglePoints.y);
+    rectangle.setAttribute("width", rectanglePoints.width);
+    rectangle.setAttribute("height", rectanglePoints.height);
   };
-  text.setAttribute("x", textPoints.x);
-  text.setAttribute("y", textPoints.y);
-  text.setAttribute("font-size", width / 12);
+  createSVGRectangle();
+
+  function createSVGText() {
+    const textPoints = {
+      x: width / 4,
+      y: height
+    };
+    text.setAttribute("x", textPoints.x);
+    text.setAttribute("y", textPoints.y);
+    text.setAttribute("font-size", width / 12);
+  };
+  createSVGText();
 
   return svg;
 };
@@ -117,6 +131,43 @@ requestAnimationFrame(function () {
   keepAspectRatioOnResize(canvas, createCanvas);
   keepAspectRatioOnResize(svg, setSVGPoints);
 });
+
+/*************************
+Validation de formulaire*/
+(function formValidation() {
+  const textInputs = document.querySelectorAll("input[type=text]");
+  const email = document.querySelector("input[type=email]");
+  const codeRegional = document.querySelector("#code-regional");
+  const form = document.querySelector("form");
+
+  function checkFormValidity() {
+    if (form.checkValidity()) document.querySelector("#submit-button").removeAttribute("disabled");
+    if (!form.checkValidity()) document.querySelector("#submit-button").setAttribute("disabled", "");
+  }
+
+  form.onchange = checkFormValidity;
+
+  const regex = {
+    email: "^\\w+([\\.\\+-]?\\w+)@+\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$", //
+    nospecialchars: "^((?=.+)[^\\(\\)\\{\\}\\[\\]\\$%@!\\*\\\/])*"
+  };
+
+  const codes = ["418", "819", "514"];
+
+  textInputs.forEach(input => {
+    if (!input.getAttribute("pattern")) input.setAttribute("pattern", regex.nospecialchars);
+    if (!input.getAttribute("maxlength")) input.setAttribute("maxlength", 30);
+  });
+  email.setAttribute("pattern", regex.email);
+  function validateCodeRegional() {
+    if (!codes.includes(this.value)) {
+      this.setCustomValidity("Entrez soit 418, 518 ou 819.");
+    } else {
+      this.setCustomValidity("");
+    }
+  }
+  codeRegional.onchange = validateCodeRegional;
+})();
 
 /*****************************************************
 Fonction pour afficher et utiliser les boutons PayPal*/
