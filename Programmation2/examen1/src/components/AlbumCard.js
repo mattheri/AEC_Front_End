@@ -22,11 +22,11 @@ export const AlbumCard = (props) => {
     
     return (
         <React.Suspense>
-            {props && <Card style={{ width: "18rem" }} onMouseEnter={handleHover} onMouseLeave={handleHover} className="bg-dark album" onClick={handleClick}>
+            {props && <Card style={{ width: "18rem" }} onMouseEnter={handleHover} onMouseLeave={handleHover} className="bg-black album" onClick={handleClick}>
                 <Card.Img variant="top" src={cover} />
                 <Card.Body>
                     <Card.Title className="text-white">{title}</Card.Title>
-                    <Card.Text className="text-white-50">{artist.name}</Card.Text>
+                    <Card.Text className="text-white">{artist.name}</Card.Text>
                 </Card.Body>
             </Card>}
         </React.Suspense>
