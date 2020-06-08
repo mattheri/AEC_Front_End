@@ -1,0 +1,59 @@
+@font-face {
+    src: url("../media/fonts/deadpool/roguehero.ttf");
+    font-family: "Deadpool";
+}
+
+.font-deadpool {
+    font-family: Deadpool;
+    color: #1c1c1c;
+}
+
+.accent-red {
+    color: #8b2323;
+}
+
+header {
+    overflow: hidden;
+}
+
+#reveal-title {
+    font-size: 12rem;
+}
+
+#reveal-subtitle {
+    font-size: 3.5rem;
+}
+
+.h-full {
+    height: 100vh;
+}
+
+#header-bg-img {
+    top: 0; left: 0;
+    z-index: -1;
+}
+
+#reveal-cta-image {
+    width: fit-content;
+}
+
+.list-group-item {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.list-group-item img {
+    transition: transform 250ms linear;
+}
+
+.list-group-item:hover img {
+    transform: scale(1.2);
+}
+
+.trailer-link {
+    transition: transform 500ms linear;
+}
+
+.trailer-link:hover {
+    transform: scale(1.08);
+}

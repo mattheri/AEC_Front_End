@@ -1,0 +1,26 @@
+{
+  "name": "librairiesanimation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "animejs": "^3.2.0",
+    "basiclightbox": "^5.0.3",
+    "jquery": "^3.5.1",
+    "lightbox2": "^2.11.1",
+    "parcel-bundler": "^1.12.4",
+    "popper.js": "^1.16.1",
+    "rellax": "^1.12.1"
+  },
+  "devDependencies": {
+    "@types/animejs": "^3.1.1",
+    "@types/basiclightbox": "^5.0.0",
+    "@types/rellax": "^1.7.3"
+  }
+}
