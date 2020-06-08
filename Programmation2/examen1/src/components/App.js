@@ -1,8 +1,8 @@
 import React from 'react';
 import fetchData from "./fetch";
 import { Connexion } from './Connexion';
-import { Catalogue } from './Catalogue';
 import { ContextProvider } from "./Context";
+import { CatalogueContainer } from "./CatalogueContainer";
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
     <ContextProvider>
       <div className="App">
         {!user.isConnected && <Connexion state={[user, setUser]} />}
-        {user.isConnected && <Catalogue state={[[user, setUser], [music, setMusic]]} />}
+        {user.isConnected && <CatalogueContainer state={[[user, setUser], [music, setMusic]]} />}
       </div>
     </ContextProvider>
   
