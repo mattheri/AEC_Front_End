@@ -29,7 +29,7 @@ export const useSearch = (query) => {
         const searchTracks = async () => {
             const dataTracks = Object.entries(context);
             dataTracks.forEach(d => {
-                if (d[0] !== "data" && d[0] !== "total" && d[0] !== "loadedAlbum") {
+                if (d[0] !== "data" && d[0] !== "total" && d[0] !== "loadedAlbum" && d[0] !== "previewSrc" && d[0] !== "previewOn") {
                     d[1].data.forEach(p => {
                         let title = p.title.toLowerCase();
                         let data = [title, p, context.data.filter(t => t.title === d[0])]

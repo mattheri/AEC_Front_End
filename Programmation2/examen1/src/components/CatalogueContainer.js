@@ -19,9 +19,7 @@ export const CatalogueContainer = (props) => {
 
     const fetchAll = async () => {
         context.data.forEach(album => {
-            setTimeout(async () => {
-                fetchData(album.tracklist, [context, setContext], album.title);
-            }, 500);
+            fetchData(album.tracklist, [context, setContext], album.title);
         });
     }
 

@@ -36,7 +36,7 @@ export const TrackList = (props) => {
             </section>
             <Container className="d-flex justify-content-center track-list" fluid="sm">
                 {user.module === "album" ?
-                    <ListGroup className="w-100 py-5">
+                    <ListGroup className="w-100 py-8">
                         <React.Suspense fallback={<CardPlaceholder />}>
                             {tracksData && <List data={tracksData.data} onClick={handleClick} />}
                         </React.Suspense>

@@ -132,3 +132,24 @@ code {
 .bg-black {
   background-color: black;
 }
+
+.audio {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.py-8 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media only screen and (max-width: 940px) {
+  .audio {
+    position: fixed;
+    top: 90vh;
+    left: 0;
+    display: flex;
+    justify-content: center;
+  }
+}

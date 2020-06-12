@@ -2,7 +2,7 @@ import React from 'react';
 import { createPortal } from "react-dom";
 
 export const Portal = (props) => {
-    const mount = document.getElementById("portal-root");
+    const mount = document.getElementById(props.id || "portal-root");
     const el = document.createElement("div");
 
     React.useEffect(() => {

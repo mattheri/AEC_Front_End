@@ -6,6 +6,7 @@ import { appContext } from './Context';
 import { Portal } from './Portal';
 import { Results } from './Results';
 import { AlbumContainer } from "./AlbumContainer";
+import { Player } from "./Player";
 
 export const Catalogue = (props) => {
 
@@ -64,6 +65,9 @@ export const Catalogue = (props) => {
                     </Portal>  
                 }
             </Container>
+            {context.previewOn &&
+                <Player src={context.previewSrc} />
+            }
         </React.Fragment>
     );
 }
