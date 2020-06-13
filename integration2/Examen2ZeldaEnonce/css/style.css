@@ -1,0 +1,78 @@
+/*  style.css
+    Modifié par: Mathieu Thériault
+    Dernière modification: 6/13/2020 */
+
+@font-face {
+    src: url("../font/CinzelDecorative-Bold.ttf");
+    font-family: "Zelda, bold";
+}
+header {
+    background-image: url("../img/banniere.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+body{
+    background-image: url("../img/pattern-triforce-2x.png");
+    background-repeat: repeat;
+    background-color: #234f30;
+}
+hr{
+    border-top: 2px solid rgb(185, 195, 70);
+}
+li a{
+    color: white;
+    font-family: cinzel;
+}
+a:hover{
+    color: #11a30e;
+}
+
+.sous-titre{
+    padding-bottom: 10%;
+    padding-top: 24%;
+}
+.separation{
+    background-image: url("../img/hyrule_rule.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 2%;
+}
+.zelda {
+    font-size: 5rem;
+}
+
+.graphiques{
+    background-color: black;
+}
+
+.list-group-item{
+    background-color: #d9a936;
+    border: 2px solid rgb(9, 60, 25);
+}
+.form-control{
+    background-color: #ceb373ad;
+    border: 2px solid rgb(255, 255, 255);
+}
+h1 {
+    font-family: "Zelda, bold";
+    text-shadow: 0px 0px 4px black;
+    color: white;
+}
+header a {
+    text-decoration: underline;
+    color: white;
+    font-size: 1.3rem;
+}
+#myInput::placeholder {
+    color: white;
+}
+
+@media only screen and (min-width: 768px) {
+    header a {
+        text-decoration: underline;
+        color: white;
+        font-size: 1.5rem;
+    }
+}
