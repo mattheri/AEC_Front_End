@@ -1,7 +1,5 @@
 import React from 'react';
 import ListGroup from "react-bootstrap/ListGroup";
-import { Portal } from "./Portal";
-import { Player } from './Player';
 import { appContext } from './Context';
 
 export const List = (props) => {
