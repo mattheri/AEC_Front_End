@@ -1,98 +1,88 @@
-* {
-    margin: 0;
-    padding: 0;
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.btn {
-    border-radius: 25px;
-    margin: 30px auto;
-    text-transform: uppercase;
-    padding: 1em;
-    font-size: 0.8rem;
-    font-weight: bold;
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-    text-align: center;
-    color: white;
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
 }
 
-hr {
-    max-width: 50px;
-    border-width: 3px;
-    margin: 30px auto;
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
 }
 
-.far, .fas {
-    font-size: 5rem;
-    color: #f05f40;
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
 }
 
-header {
-    background-image: url("../media/desktop/startup-593327_1920.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    position: relative;
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-header::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 0;
-    left: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+.col-1 {
+  width: 8.33333%;
 }
 
-header .row {
-    z-index: 1 !important;
+.col-2 {
+  width: 16.66667%;
 }
 
-.header-title {
-    color: white;
-    text-transform: uppercase;
+.col-3 {
+  width: 25%;
 }
 
-.header-separator {
-    border-color: #f05f40;
+.col-4 {
+  width: 33.33333%;
 }
 
-header .btn {
-    color: white;
-    background-color: #f05f40;
+.col-5 {
+  width: 41.66667%;
 }
 
-.cta {
-    background-color: #f05f40;
+.col-6 {
+  width: 50%;
 }
 
-.cta-separator {
-    max-width: 50px;
-    border-width: 3px;
-    border-color: white;
-    margin: 30px auto;
+.col-7 {
+  width: 58.33333%;
 }
 
-.cta-text {
-    color: white;
+.col-8 {
+  width: 66.66667%;
 }
 
-.cta .btn {
-    color: #f05f40;
+.col-9 {
+  width: 75%;
 }
 
-.services-title {
-    color: black;
-    text-transform: capitalize;
+.col-10 {
+  width: 83.33333%;
 }
 
-.services-separator {
-    border-color: #f05f40;
+.col-11 {
+  width: 91.66667%;
 }
 
-.services h5 {
-    color: black;
+.col-12 {
+  width: 100%;
 }
+/*# sourceMappingURL=style.css.map */
