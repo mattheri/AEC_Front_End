@@ -1,0 +1,66 @@
+@font-face {
+    src: url("../font/jagwi.ttf");
+    font-family: Jagwi;
+}
+
+body {
+    width: 1000px;
+    background-image: url("../img/fondecran.jpg");
+    background-repeat: no-repeat;
+    background-color: black;
+    background-position: bottom;
+    margin: auto;
+}
+
+h1 {
+    font-size: 140px;
+    text-align: center;
+    color: yellow;
+    margin: 0;
+}
+
+h2, h3, h4 {
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    font-size: 70px;
+}
+
+h3 {
+    font-size: 58px;
+}
+
+h4 {
+    font-size: 40px;
+}
+
+p {
+    text-align: justify;
+    font-size: 30px;
+    color: white;
+    font-family: Jagwi;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+.episodes {
+    color: yellow;
+}
+
+a {
+    color: white;
+    text-decoration: underline yellow;
+}
+
+#presentation img {
+    max-width: 50%;
+}
+
+ul li p {
+    font-size: 22px;
+}

@@ -1,0 +1,28 @@
+#zone1 {
+    position: relative;
+    height: 100vh;
+    video {
+        margin:0 auto;
+        width: 100vw;
+        height: auto;
+        z-index: -100;
+        transition: 1s opacity;
+        position: fixed;
+    }
+
+    article {
+        background-color: rgba(243, 156, 18,0.6);
+
+        h1 {
+            font-weight: bold;
+        }
+    }
+
+    #title {
+        background-color: rgba(236, 240, 241,0.6);
+
+        h1 {
+            font-size: 5rem;
+        }
+    }
+}

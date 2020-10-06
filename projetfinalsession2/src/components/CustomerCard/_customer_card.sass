@@ -1,0 +1,65 @@
+// Last modified by Mathieu Theriault
+// On 24/08/2020
+// Defines default styles for component CustomerCard
+    
+.customer-card
+    height: 17rem
+    width: 13rem !important
+    border: 3px black solid
+    margin: 2em
+    border-radius: 15px
+    padding: 0.5rem
+    display: block
+    text-decoration: none
+    overflow: hidden
+    cursor: pointer
+    position: relative
+    &:hover
+        border: 3px solid $purpleMain
+    .customer-card-body-link
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+    h4
+        color: black
+        margin-left: 0.5rem
+        white-space: nowrap
+        text-overflow: ellipsis
+        overflow: hidden
+    .customer-card-body
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-evenly
+        svg
+            width: 3rem
+            height: 1.5rem
+    .modules-link
+        width: 3rem
+        height: 3rem
+        background-color: $purpleMain
+        border-radius: 50%
+        margin: 0.5rem 0.2rem
+        @include flexcenter
+    .customer-card-footer
+        margin-top: 1rem
+        display: flex
+        justify-content: space-between
+        position: relative
+        z-index: 2
+        button
+            cursor: pointer
+            svg
+                width: 3rem
+                height: 1.5rem
+        .card-delete
+            background-color: white
+            border: none
+        .card-complete
+            position: absolute
+            bottom: -1.2rem
+            right: -1.6rem
+            width: 4rem
+            height: 4rem
+            border: none

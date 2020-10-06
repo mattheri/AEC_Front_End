@@ -1,0 +1,37 @@
+.card
+    width: 100%
+    box-shadow: 0 2px 2.2px rgba(0, 0, 0, 0.02),0 3.9px 5.3px rgba(0, 0, 0, 0.029),0 6.5px 10px rgba(0, 0, 0, 0.037),0 12.6px 17.9px rgba(0, 0, 0, 0.044),0 32.1px 33.4px rgba(0, 0, 0, 0.052),0 94px 80px rgba(0, 0, 0, 0.07)
+    transform: translateY(0)
+    border: 1px solid $borderColor
+    transition: $cardTransition
+    margin-bottom: 2em;
+    @include image
+    .top_img
+        &:hover
+            img
+                transform: scale(1.1);
+    .card_description
+        padding: 1.5em
+        small, p
+            color: $textMuted
+            padding-bottom: 0.8em 0;
+        h2
+            margin: 0.8em 0;
+            font-weight: bold
+    .card_footer
+        border-top: 1px solid $borderColor
+        position: relative
+        padding: 1.5em
+        .btn_comment
+            position: absolute
+            z-index: 1
+            width: 40%
+            height: 100%
+            top: -10%
+            right: 0
+            background-color: white
+    &:hover
+        transform: translateY(5px)
+        box-shadow: none
+.categories
+            text-transform: uppercase

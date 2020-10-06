@@ -1,0 +1,35 @@
+// Last modified by Mathieu Theriault
+// On 24/08/2020
+// Defines default styles for Input component
+
+.input
+    display: flex
+    flex-direction: column
+    width: 100%
+    margin-top: 0.8rem
+
+    label
+        font-family: $font
+        font-size: 1rem
+        transform: translate(1rem, -115%)
+        transition: transform 150ms
+        width: fit-content
+    
+    input
+        font-family: $font
+        border: 3px black solid
+        border-radius: 5px
+        height: 2rem
+        padding: 0 0.5rem
+        &:focus
+            outline: none !important
+            border-color: $purpleMain
+            + label
+                transform: translate(0, -255%)
+    .not-empty
+        + label
+            transform: translate(0, -255%)
+    small
+        font-family: $font
+        color: #888585
+        transform: translateY(-1rem)

@@ -1,0 +1,228 @@
+ul
+    list-style: none
+.desktop
+    display: none
+.mobile
+    .container
+        justify-content: space-between
+    .nav_mobile--trigger
+        margin-top: 10px
+        height: fit-content
+    .trigger
+        width: 1.8rem
+        height: 1.5px
+        margin-bottom: 7px
+        background-color: white
+        transform: translateY(0) rotate(0)
+    .mobile_nav--menu, .mobile_nav--menu-2
+        position: relative
+        transform: scaleY(0)
+        transition: $cardTransition
+        transform-origin: top
+        width: 100%
+        background-color: #15181a
+        display: flex
+        flex-direction: column
+        padding: 1.8em 2.8em
+        z-index: 2
+        li
+            padding: 1em
+            border-bottom: 1px solid #ffffff10
+            transition: $cardTransition
+            height: 3rem
+            a, label
+                color: #ffffff7c
+                text-decoration: none
+                font-size: 0.8rem
+        
+        li:last-child
+            border-bottom: none
+    .mobile_nav--menu-2
+        transform: scaleY(0)
+        ul
+            width: 100%
+            li
+                width: 100%
+    .mobile_nav--menu
+        transform: scaleY(0)
+    label
+        color: white
+        font-size: 3rem
+    #nav_mobile--trigger
+        &:checked 
+            ~ .mobile_nav--menu
+                transform: scaleY(1)
+    .open
+        .trigger
+            &:nth-child(1)
+                animation: animateTrigger1OnMenuOpen 500ms cubic-bezier(0.83, 0, 0.17, 1) forwards
+                -webkit-animation: animateTrigger1OnMenuOpen 500ms cubic-bezier(0.83, 0, 0.17, 1) forwards
+            &:nth-child(2)
+                animation: animateTrigger2OnMenuOpen 500ms cubic-bezier(0.83, 0, 0.17, 1) forwards
+                -webkit-animation: animateTrigger2OnMenuOpen 500ms cubic-bezier(0.83, 0, 0.17, 1) forwards
+            &:nth-child(3)
+                animation: animateTrigger3OnMenuOpen 500ms cubic-bezier(0.83, 0, 0.17, 1) forwards
+                -webkit-animation: animateTrigger3OnMenuOpen 500ms cubic-bezier(0.83, 0, 0.17, 1) forwards
+    .close
+        .trigger
+            &:nth-child(1)
+                animation: animateTrigger1OnMenuClose 500ms cubic-bezier(0.83, 0, 0.17, 1) forwards
+                -webkit-animation: animateTrigger1OnMenuClose 500ms cubic-bezier(0.83, 0, 0.17, 1) forwards
+            &:nth-child(2)
+                animation: animateTrigger2OnMenuClose 500ms cubic-bezier(0.83, 0, 0.17, 1) forwards
+                -webkit-animation: animateTrigger2OnMenuClose 500ms cubic-bezier(0.83, 0, 0.17, 1) forwards
+            &:nth-child(3)
+                animation: animateTrigger3OnMenuClose 500ms cubic-bezier(0.83, 0, 0.17, 1) forwards
+                -webkit-animation: animateTrigger3OnMenuClose 500ms cubic-bezier(0.83, 0, 0.17, 1) forwards
+    #nav_mobile--trigger-2
+        &:checked
+            + .expand
+                max-height: fit-content
+                height: 18rem
+                ul
+                    transform: scaleY(1)
+        
+@include media($size: computer)
+    .mobile
+        display: none
+    .desktop
+        display: flex;
+        justify-content: center;    
+        .brand
+            margin-right: auto;
+        span
+            display: none
+        .dropdown_show
+            position: absolute
+            flex-direction: column
+            opacity: 0
+            transform: scaleY(0)
+            transition: transform 250ms linear, opacity 100ms linear
+            transform-origin: top
+            z-index: 1
+            background-color: rgba(0, 0, 0, 0.7)
+            padding: 1em
+            list-style: none
+            display: flex
+            flex-direction: column
+            margin-top: 1em
+        li
+            align-self: flex-start
+            padding: 1em
+        .dropdown
+            position: relative
+            &:hover
+                .dropdown_show
+                    transform: scaleY(1)
+                    opacity: 1
+        ul
+            display: flex;
+            list-style: none;
+            margin-left: auto;
+            li 
+                padding-left: 1em;
+                padding-top: 1em;
+                a
+                    color: white;
+                    text-decoration: none;
+@keyframes animateTrigger1OnMenuOpen
+    0%
+        transform: translateY(0) rotate(0)
+    50%
+        transform: translateY(7px) rotate(0)
+    75%
+        transform: translateY(7px) rotate(0)
+    100%
+        transform: translateY(7px) rotate(45deg)
+@-webkit-keyframes animateTrigger1OnMenuOpen
+    0%
+        transform: translateY(0), rotate(0)
+    50%
+        transform: translateY(-7px) rotate(0)
+    75%
+        transform: translateY(7px) rotate(0)
+    100%
+        transform: translateY(-7px) rotate(-45deg)
+@keyframes animateTrigger2OnMenuOpen
+    0%
+        opacity: 1
+    50%
+        opacity: 0
+    100%
+        opacity: 0
+@-webkit-keyframes animateTrigger2OnMenuOpen
+    0%
+        opacity: 1
+    50%
+        opacity: 0
+    100%
+        opacity: 0
+@keyframes animateTrigger3OnMenuOpen
+    0%
+        transform: translateY(0) rotate(0)
+    50%
+        transform: translateY(-10px) rotate(0)
+    75%
+        transform: translateY(-10px) rotateY(0)
+    100%
+        transform: translateY(-10px) rotate(-45deg)
+@-webkit-keyframes animateTrigger3OnMenuOpen
+    0%
+        transform: translateY(0) rotate(0)
+    50%
+        transform: translateY(-10px) rotate(0)
+    75%
+        transform: translateY(-10px) rotateY(0)
+    100%
+        transform: translateY(-10px) rotate(-45deg)
+@keyframes animateTrigger1OnMenuClose
+    0%
+        transform: translateY(7px) rotate(45deg)
+    50%
+        transform: translateY(7px) rotate(0)
+    75%
+        transform: translateY(7px) rotate(0)
+    100%
+        transform: translateY(0) rotate(0)
+@-webkit-keyframes animateTrigger1OnMenuClose
+    0%
+        transform: translateY(7px) rotate(45deg)
+    50%
+        transform: translateY(7px) rotate(0)
+    75%
+        transform: translateY(7px) rotate(0)
+    100%
+        transform: translateY(0) rotate(0)
+@keyframes animateTrigger2OnMenuClose
+    0%
+        opacity: 0
+    50%
+        opacity: 1
+    100%
+        opacity: 1
+@-webkit-keyframes animateTrigger2OnMenuClose
+    0%
+        opacity: 0
+    50%
+        opacity: 1
+    100%
+        opacity: 1
+@keyframes animateTrigger3OnMenuClose
+    0%
+        transform: translateY(-10px) rotate(-45deg)
+    50%
+        transform: translateY(-10px) rotate(0)
+    75%
+        transform: translateY(-10px) rotateY(0)
+    100%
+        transform: translateY(0) rotate(0)
+@-webkit-keyframes animateTrigger3OnMenuClose
+    0%
+        transform: translateY(-10px) rotate(-45deg)
+    50%
+        transform: translateY(-10px) rotate(0)
+    75%
+        transform: translateY(-10px) rotateY(0)
+    100%
+        transform: translateY(0) rotate(0)
+        

@@ -1,0 +1,14 @@
+nav {
+    background-color: black;
+
+    a {
+        text-transform: uppercase;
+        color: rgba(236, 240, 241, 0.6);
+        transition: all 500ms;
+
+        &:hover {
+            color: white;
+            text-decoration: underline white !important;
+        }
+    }
+}

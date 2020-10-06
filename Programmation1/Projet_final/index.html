@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Projet final</title>
+</head>
+<body>
+    <header>
+        <form class="container my-5" novalidate autocomplete="off">
+            <div class="form-group">
+                <label for="text-input">Entrez votre mot</label>
+                <input type="text" class="form-control text-center" id="text-input" min="3" max="12">
+                <div class="invalid-feedback" id="validation"></div>
+            </div>
+        </form>
+    </header>
+    <div class="modal fade" id="selection-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Choisissez une autre image</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="carousel slide" id="modal-carousel" data-ride="carousel" data-interval="false">
+                        <div class="carousel-inner">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-between" id="modal-footer">
+                    <a href="#modal-carousel" id="carousel-prev" class="carousel-control" role="button" data-slide="prev">
+                        <i class="fas fa-arrow-square-left"></i>
+                    </a>
+                    <a href="#modal-carousel" id="carousel-next" class="carousel-control" role="button" data-slide="next">
+                        <i class="fas fa-arrow-square-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="photociti" class="container text-center py-3">
+
+    </section>
+    <section id="choose-bg-color" class="my-3">
+        <div class="row">
+            <h5 class="col-12 text-center">Choisir la couleur de fond</h5>
+            <div class="col-3 mx-auto">
+                <div class="row">
+                    <div class="bg-color col-3 m-1 black"></div>
+                    <div class="bg-color col-3 m-1 blue"></div>
+                    <div class="bg-color col-3 m-1 green"></div>
+                    <div class="bg-color col-3 m-1 red"></div>
+                    <div class="bg-color col-3 m-1 yellow"></div>
+                    <div class="bg-color col-3 m-1 cyan"></div>
+                    <div class="bg-color col-3 m-1 magenta"></div>
+                    <div class="bg-color col-3 m-1 turquoise"></div>
+                    <div class="bg-color col-3 m-1 pink"></div>
+                    <div class="bg-color col-3 m-1 orange"></div>
+                    <div class="bg-color col-3 m-1 purple"></div>
+                    <div class="bg-color col-3 m-1 charcoal"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./js/jquery/jquery.min.js"></script>
+    <script src="./js/bootstrap-js/bootstrap.js"></script>
+    <script src="https://kit.fontawesome.com/84843ef397.js" crossorigin="anonymous"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>

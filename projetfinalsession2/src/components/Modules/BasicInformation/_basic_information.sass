@@ -1,0 +1,26 @@
+
+.basic-information
+    .container
+        @include flexcenter
+        position: relative
+        padding-top: 20vh
+        padding-bottom: 3rem
+        form
+            width: 30%
+            min-width: 300px
+        &::before
+            content: attr(data-content)
+            position: absolute
+            width: 100vw
+            height: 100%
+            top: 0
+            z-index: -1
+            display: flex
+            justify-content: center
+            font-family: $fontBold
+            font-size: 10vw
+            color: $purpleMain
+        &:nth-child(odd)
+            &::before
+                background-color: #ecf0f1
+           

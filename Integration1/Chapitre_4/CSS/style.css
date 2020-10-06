@@ -1,0 +1,452 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+.header {
+  background-image: url("../Media/images/night-4702174_1280.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background-color: rgba(30, 39, 46, 0.4);
+}
+
+nav {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: fixed;
+  z-index: 10;
+  -webkit-transition: background-color 250ms linear;
+  transition: background-color 250ms linear;
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+nav ul li {
+  margin: 1em 1em;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #d2dae2;
+}
+
+nav ul #contact-link {
+  position: absolute;
+  right: 3em;
+}
+
+nav ul #contact-link a {
+  padding: 0.5em;
+  background-color: #f53b57;
+  border-radius: 5px;
+}
+
+nav:not(.intersecting):hover {
+  background-color: rgba(30, 39, 46, 0.5);
+}
+
+.intersecting {
+  background-color: #1e272e;
+}
+
+#about {
+  position: relative;
+  height: 150vh;
+}
+
+#about .cta {
+  width: 100%;
+  height: 40vh;
+  background-color: #1e272e;
+  position: absolute;
+  bottom: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#about .cta p {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 50%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+}
+
+#about .about-cta {
+  position: absolute;
+  width: 80%;
+  height: 120vh;
+  top: -20%;
+  left: 50%;
+  z-index: 3;
+  background-color: white;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 15px 4px rgba(30, 39, 46, 0.76);
+          box-shadow: 0px 0px 15px 4px rgba(30, 39, 46, 0.76);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: -webkit-box-shadow 1s ease-out;
+  transition: -webkit-box-shadow 1s ease-out;
+  transition: box-shadow 1s ease-out;
+  transition: box-shadow 1s ease-out, -webkit-box-shadow 1s ease-out;
+}
+
+#about .about-cta:hover {
+  -webkit-box-shadow: 0px 0px 25px 4px rgba(30, 39, 46, 0.76);
+          box-shadow: 0px 0px 25px 4px rgba(30, 39, 46, 0.76);
+}
+
+#about .about-cta .about-cta-section {
+  width: 80%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+}
+
+#about .about-cta .about-cta-section .about-cta-text {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  width: 50%;
+  margin: auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#about .about-cta .about-cta-section .about-cta-text h3, #about .about-cta .about-cta-section .about-cta-text p {
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+  opacity: 0;
+}
+
+#about .about-cta .about-cta-section .about-cta-text h3 {
+  margin-bottom: 1em;
+}
+
+#about .about-cta .about-cta-section img {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 4;
+  opacity: 0;
+  border-radius: 5px;
+  margin: 0 auto;
+  -webkit-transform: translateX(20%);
+          transform: translateX(20%);
+}
+
+.cta-intersecting .about-cta-text h3 {
+  -webkit-animation: text-appear forwards ease-out 500ms;
+          animation: text-appear forwards ease-out 500ms;
+}
+
+.cta-intersecting .about-cta-text p {
+  -webkit-animation: text-appear forwards ease-out 500ms;
+          animation: text-appear forwards ease-out 500ms;
+  -webkit-animation-delay: 100ms;
+          animation-delay: 100ms;
+}
+
+.cta-intersecting img {
+  -webkit-animation: text-appear forwards ease-out 500ms;
+          animation: text-appear forwards ease-out 500ms;
+}
+
+@-webkit-keyframes text-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes text-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+/*.foo {
+  @include position(absolute, $top: 1em, $left: 50%);
+}*/
+/*.site-header {
+    padding: 2rem;
+    font-size: 1.8rem;
+    @include mq('tablet-wide') {
+        padding-top: 4rem;
+        font-size: 2.4rem;
+    }
+}*/
+/*.foo {
+    @include transition {
+        @include position(absolute, $top: 0, $left: 0)
+    }
+}*/
+main {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
+}
+
+main .parallax-background {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: #d2dae2;
+  position: absolute;
+  overflow-y: hidden;
+}
+
+main .parallax-background .background-shapes {
+  color: rgba(128, 142, 155, 0.6);
+}
+
+main .parallax-background .background-shapes:nth-child(1) {
+  position: absolute;
+  top: 188rem;
+  left: 60rem;
+  font-size: 6rem;
+}
+
+main .parallax-background .background-shapes:nth-child(2) {
+  position: absolute;
+  top: 42rem;
+  left: 72rem;
+  font-size: 10rem;
+}
+
+main .parallax-background .background-shapes:nth-child(3) {
+  position: absolute;
+  top: 177rem;
+  left: 72rem;
+  font-size: 2rem;
+}
+
+main .parallax-background .background-shapes:nth-child(4) {
+  position: absolute;
+  top: 152rem;
+  left: 73rem;
+  font-size: 1rem;
+}
+
+main .parallax-background .background-shapes:nth-child(5) {
+  position: absolute;
+  top: 168rem;
+  left: 3rem;
+  font-size: 7rem;
+}
+
+main .parallax-background .background-shapes:nth-child(6) {
+  position: absolute;
+  top: 38rem;
+  left: 3rem;
+  font-size: 10rem;
+}
+
+main .parallax-background .background-shapes:nth-child(7) {
+  position: absolute;
+  top: 22rem;
+  left: 65rem;
+  font-size: 1rem;
+}
+
+main .parallax-background .background-shapes:nth-child(8) {
+  position: absolute;
+  top: 99rem;
+  left: 75rem;
+  font-size: 2rem;
+}
+
+main .parallax-background .background-shapes:nth-child(9) {
+  position: absolute;
+  top: 2rem;
+  left: 44rem;
+  font-size: 2rem;
+}
+
+main .parallax-background .background-shapes:nth-child(10) {
+  position: absolute;
+  top: 40rem;
+  left: 69rem;
+  font-size: 4rem;
+}
+
+main .parallax-background .background-shapes:nth-child(11) {
+  position: absolute;
+  top: 88rem;
+  left: 9rem;
+  font-size: 4rem;
+}
+
+main .parallax-background .background-shapes:nth-child(12) {
+  position: absolute;
+  top: 146rem;
+  left: 39rem;
+  font-size: 9rem;
+}
+
+main .parallax-background .background-shapes:nth-child(13) {
+  position: absolute;
+  top: 200rem;
+  left: 28rem;
+  font-size: 2rem;
+}
+
+main .parallax-background .background-shapes:nth-child(14) {
+  position: absolute;
+  top: 108rem;
+  left: 82rem;
+  font-size: 6rem;
+}
+
+main .parallax-background .background-shapes:nth-child(15) {
+  position: absolute;
+  top: 150rem;
+  left: 95rem;
+  font-size: 1rem;
+}
+
+main .parallax-background .background-shapes:nth-child(16) {
+  position: absolute;
+  top: 53rem;
+  left: 95rem;
+  font-size: 7rem;
+}
+
+main .parallax-background .background-shapes:nth-child(17) {
+  position: absolute;
+  top: 131rem;
+  left: 2rem;
+  font-size: 3rem;
+}
+
+main .parallax-background .background-shapes:nth-child(18) {
+  position: absolute;
+  top: 27rem;
+  left: 100rem;
+  font-size: 6rem;
+}
+
+main .parallax-background .background-shapes:nth-child(19) {
+  position: absolute;
+  top: 53rem;
+  left: 58rem;
+  font-size: 2rem;
+}
+
+main .parallax-background .background-shapes:nth-child(20) {
+  position: absolute;
+  top: 100rem;
+  left: 98rem;
+  font-size: 2rem;
+}
+
+#projects {
+  width: 80%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 15px 4px rgba(30, 39, 46, 0.76);
+          box-shadow: 0px 0px 15px 4px rgba(30, 39, 46, 0.76);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: -webkit-box-shadow 1s ease-out;
+  transition: -webkit-box-shadow 1s ease-out;
+  transition: box-shadow 1s ease-out;
+  transition: box-shadow 1s ease-out, -webkit-box-shadow 1s ease-out;
+}
+
+#projects:hover {
+  -webkit-box-shadow: 0px 0px 25px 4px rgba(30, 39, 46, 0.76);
+          box-shadow: 0px 0px 25px 4px rgba(30, 39, 46, 0.76);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 2em auto;
+  font-size: 3rem;
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,26 @@
+.subnav
+    display: flex
+    justify-content: center
+    margin: 2.5em 0;
+    nav
+        margin: auto;
+        ul
+            display: flex;
+            flex-wrap: wrap
+            align-items: center;
+            justify-content: center
+            li
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                border-radius: 15px;
+                cursor: pointer;
+                padding: 0.3em .8em;
+                margin: .5em .5em;
+                color: rgba(0, 0, 0, 0.5);
+                transition: all 150ms linear;
+                &:hover
+                    background-color: #54CEED;
+                    color: white;
+            .selected
+                color: white;
+                font-weight: bold;
+                background-color: #54CEED;

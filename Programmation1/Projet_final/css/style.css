@@ -1,0 +1,88 @@
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#photociti img {
+    border: white 1px solid;
+    margin: 0;
+    padding: 5px;
+}
+
+.modal-images {
+    cursor: pointer;
+}
+
+.fas {
+    font-size: 2rem;
+    color: rgb(43, 35, 35);
+}
+
+.fas:hover {
+    color: black;
+}
+
+.bg-color {
+    height: 3rem;
+    cursor: pointer;
+}
+
+.black {
+    background-color: black;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.cyan {
+    background-color: cyan;
+}
+
+.magenta {
+    background-color: magenta;
+}
+
+.turquoise {
+    background-color: turquoise;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.charcoal {
+    background-color: rgb(51, 49, 49);
+}
+
+@media print {
+    form {
+        display: none;
+    }
+    #photociti {
+        -webkit-print-color-adjust: exact;
+    }
+    #choose-bg-color {
+        display: none;
+    }
+}

@@ -1,0 +1,41 @@
+nav {
+    width: 100%;
+    height: fit-content;
+    position: fixed;
+    z-index: 10;
+    transition: background-color 250ms linear;
+
+    ul {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+
+        li {
+            margin: 1em 1em;
+
+            a {
+                text-decoration: none;
+                color: rgba(210, 218, 226,1.0);
+            }
+        }
+
+        #contact-link {
+            position: absolute;
+            right: 3em;
+
+            a {
+                padding: 0.5em;
+                background-color: rgba(245, 59, 87,1.0);
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+nav:not(.intersecting):hover {
+    background-color: rgba(30, 39, 46,0.5);
+}
+
+.intersecting {
+    background-color: rgba(30, 39, 46,1.0);
+}

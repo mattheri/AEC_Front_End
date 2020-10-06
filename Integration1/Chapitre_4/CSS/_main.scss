@@ -1,0 +1,24 @@
+@import "./mixins";
+main {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+
+    .parallax-background {
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(210, 218, 226,1.0);
+        position: absolute;
+        overflow-y: hidden;
+    
+        .background-shapes {
+            @include transition($start: 1, $finish: 20) {
+                @include position(absolute, $top: random(200)+rem, $left: random(102) - 1+rem);
+                font-size: random($limit: 10)+rem;
+            }
+
+            color: rgba(128, 142, 155,0.6);
+        }
+    }
+}

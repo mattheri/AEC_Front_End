@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "witcherly";
+    src: url("../font/Thewitcher-jnOj.ttf");
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0b0b0b;
+}
+
+section h1 {
+    color: #6c6c6c;
+}
+
+.witcherly {
+    font-family: witcherly;
+}
+
+nav a {
+    color: #6c6c6c;
+}
+
+hr {
+    background: #353434;
+    height: 1px;
+    border-style: none;
+    margin: 2% 0;
+}

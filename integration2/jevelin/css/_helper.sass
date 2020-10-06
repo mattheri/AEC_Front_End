@@ -1,0 +1,64 @@
+$textMuted: rgba(0, 0, 0, 0.5)
+$borderColor: rgba(0, 0, 0, 0.1)
+$cardTransition: all 150ms linear
+$accentColor: #54ceed83;
+@mixin media($size)
+    @if $size == phone
+        @media only screen and (min-width: 576px)
+            @content
+    @else if $size == tablet
+        @media only screen and (min-width: 768px)
+            @content
+    @else if $size == computer
+        @media only screen and (min-width: 992px)
+            @content
+.container
+    min-width: 90%
+    max-width: 70%
+    padding: 1em
+    display: flex
+    flex-wrap: wrap
+@mixin image()
+    .hover_img
+        overflow: hidden
+        position: relative
+        img
+            width: 100%
+            height: auto
+            transition: $cardTransition
+        &::after
+            content: ""
+            position: absolute
+            width: 100%
+            height: 100%
+            z-index: 1
+            top: 0
+            left: 0
+            background-color: #54ceed00
+            transition: $cardTransition
+        &:hover
+            &::after
+                background-color: #54ceed83
+.container
+    min-width: 90%
+    max-width: 90%
+.col
+    width: 100%
+    padding: 0
+@include media($size: tablet)
+    .container
+        min-width: 90%
+        max-width: 90%
+    .col
+        width: 100%
+        padding: 0
+    .aside
+        padding: 0 1em
+@include media($size: computer)
+    .container
+        min-width: 1300px
+        width: 300px
+    @for $i from 1 to 12
+        .col-#{$i}
+            width: $i/12 * 100%
+            padding: 0.5em
