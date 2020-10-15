@@ -1,0 +1,11 @@
+.produit-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 200px;
+
+    h3, p {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+}
