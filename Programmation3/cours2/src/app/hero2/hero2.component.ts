@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-hero2',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero2.component.scss']
 })
 export class Hero2Component implements OnInit {
+
+  @Input() description: string;
+  @Input() prix: number;
 
   constructor() { }
 

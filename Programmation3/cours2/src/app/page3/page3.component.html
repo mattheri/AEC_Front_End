@@ -1,11 +1,29 @@
 <div class="page-3">
     <app-recherche></app-recherche>
     <div class="hero-container">
-        <app-hero2></app-hero2>
-        <app-hero2></app-hero2>
-        <app-hero2></app-hero2>
-        <app-hero2></app-hero2>
-        <app-hero2></app-hero2>
-        <app-hero2></app-hero2>
+        <app-hero2 
+            [description]="hero[0].description"
+            [prix]="hero[0].prix"
+        ></app-hero2>
+        <app-hero2 
+            [description]="hero[1].description"
+            [prix]="hero[1].prix"
+        ></app-hero2>
+        <app-hero2 
+            [description]="hero[2].description"
+            [prix]="hero[2].prix"
+        ></app-hero2>
+        <app-hero2 
+            [description]="hero[3].description"
+            [prix]="hero[3].prix"
+        ></app-hero2>
+        <app-hero2 
+            [description]="hero[4].description"
+            [prix]="hero[4].prix"
+        ></app-hero2>
+        <app-hero2 
+            [description]="hero[5].description"
+            [prix]="hero[5].prix"
+        ></app-hero2>
     </div>
 </div>

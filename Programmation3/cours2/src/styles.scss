@@ -78,6 +78,10 @@
             &:hover {
                 transform: scale(1.02);
             }
+
+            p:nth-child(n+2) {
+                padding-left: 1rem;
+            }
         }
     }
 
