@@ -1,0 +1,124 @@
+.carte {
+    height: 10rem;
+    width: 28rem;
+    background-image: linear-gradient(to right bottom, #74b9ff, #89c6f9, #a3d2f2, #c0dded, #dfe6e9);
+    border: 3px #0984e3 solid;
+    border-radius: 5px;
+    padding: 0.8rem;
+    padding-top: 0;
+    cursor: pointer;
+    position: relative;
+
+    .carte-description {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+
+        .destination-depart {
+            display: flex;
+            align-items: center;
+
+            .carte-destination, .carte-depart {
+                text-transform: uppercase;
+                color: #636e72;
+                font-weight: 550;
+            }
+
+            .carte-destination {
+                font-size: 1rem;
+            }
+
+            .carte-depart {
+                font-size: 0.8rem;
+                margin-left: 0.6rem;
+            }
+        }
+
+        .carte-hotel {
+            color: #0984e3;
+            font-size: 1.5rem;
+        }
+
+    }
+
+    .carte-details {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+
+        .carte-prix {
+            display: flex;
+            flex-direction: column;
+
+            .prix {
+                color: #0984e3;
+                font-size: 1.8rem;
+                padding-top: 2.5rem;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            .inclusions {
+                color: #0984e3;
+            }
+        }
+
+        .carte-duree {
+            display: flex;
+            align-self: flex-end;
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: #636e72;
+
+            .depart {
+                padding-right: 0.2rem;
+            }
+        }
+    }
+
+    .fleche {
+        position: absolute;
+        clip-path: polygon(30% 0, 100% 50%, 30% 100%, 0 100%, 72% 50%, 0 0);
+        background: rgb(9,132,227);
+        top: 50%;
+        right: 15px;
+        height: 4rem;
+        width: 1rem;
+        transform: translateY(-50%);
+        z-index: 8;
+
+        .fleche-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            &::before {
+                content: "";
+                position: absolute;
+                right: 0;
+                height: 4rem;
+                width: 1rem;
+                top: -4rem;
+                background-color: #ffffff;
+                z-index: 9;
+                transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+        }
+
+    }
+
+
+    &:hover {
+        .fleche {
+            .fleche-container {
+                &::before {
+                    transform: translateY(100%);
+                }
+            }
+        }
+    }
+}

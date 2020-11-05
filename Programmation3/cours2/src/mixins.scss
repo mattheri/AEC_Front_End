@@ -1,0 +1,33 @@
+@mixin row($row: 1) {
+    grid-row: $row;
+}
+
+@mixin col($col: 1) {
+    grid-column: $col;
+}
+
+@mixin grid($col: 1fr, $row: 1fr) {
+    display: grid;
+    grid-template-columns: $col;
+    grid-template-rows: $row;
+}
+
+@mixin flex($pos: center, $dir: row) {
+    display: flex;
+    flex-direction: $dir;
+    flex-wrap: wrap;
+
+    @if $pos == center {
+        justify-content: center;
+        align-items: center;
+    }
+
+    @if $pos == space-evenly {
+        justify-content: space-evenly;
+    }
+
+    @if $pos == space-between {
+        justify-content: space-between;
+        align-items: center;
+    }
+}

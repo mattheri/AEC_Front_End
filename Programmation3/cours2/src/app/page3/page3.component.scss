@@ -1,0 +1,13 @@
+@import "../../mixins.scss";
+
+.container {
+    @include grid(repeat(3, 1fr));
+}
+
+.hero-container {
+    grid-column: 2 / 4;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    @include flex(space-evenly, column);
+}

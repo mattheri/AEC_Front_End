@@ -8,7 +8,7 @@ import { Hero2 } from '../hero';
 })
 export class Page3Component implements OnInit {
 
-  hero: Hero2[] = [
+  heroes: Hero2[] = [
     {
       description: "Hero 1",
       prix: 99

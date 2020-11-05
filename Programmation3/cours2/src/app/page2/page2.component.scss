@@ -1,5 +1,11 @@
+@import "../../mixins.scss";
+
+.container {
+    @include grid(repeat(3, 1fr), repeat(2, 1fr));
+}
+
 .hero-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    @include flex(space-evenly, row);
+    grid-column: 2 / 4;
+    @include row(2);
 }

@@ -1,0 +1,16 @@
+<div class="trips">
+    <div class="trips-cards">
+        <mat-grid-list cols="3" gutterSize="1rem" rowHeight="13em">
+            <mat-grid-tile colspan="1" *ngFor="let forfait of forfaitsDispo">
+                <app-tripcard></app-tripcard>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <div class="trips-details">
+        <mat-grid-list cols="1" rowHeight="20rem">
+            <mat-grid-tile colspan="1" *ngFor="let forfait of forfaitsDispo">
+                <app-tripdetails></app-tripdetails>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>
