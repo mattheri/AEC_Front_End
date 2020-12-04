@@ -6,4 +6,19 @@
             <mat-option *ngFor="let jour of choixNbJours" value="{{jour.val}}">{{ jour.text }}</mat-option>
         </mat-select>
     </mat-form-field>
+    <div class="checkboxes">
+        <ul>
+            <li *ngFor="let option of options">
+                <mat-checkbox 
+                (change)="option.subVal ? updateToutInclusOnCheckbox($event.checked) : $event.checked">
+                    {{ option.val }}
+                </mat-checkbox>
+                <ul *ngIf="option.subVal">
+                    <li *ngFor="let o of option.subVal">
+                        <mat-checkbox>{{ o.val }}</mat-checkbox>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 </div>

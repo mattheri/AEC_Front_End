@@ -25,6 +25,30 @@ export class SidenavformComponent implements OnInit {
       ]
     }
   ];
+  toutInclus: boolean = true;
+  updateToutInclus() {
+    this.toutInclus = this.options.filter(option => option.subVal).every(completeness => completeness.completed);
+  }
+
+  updatePasUnToutInclusMaisPresque() {
+    // si j'ai pas de subVal do nothing;
+    if (!this.options.filter(option => option.subVal).length) {
+      return false;
+    }
+     
+    // je filtre mon objet pour sortir seulement ceux qui ont un subval ensuite je filtre 
+    // les subval qui return true et je retourne true seulement quand toutInclus est aussi false
+    return this.options.filter(option => option.subVal).filter(option => option.completed) && !this.toutInclus;
+  }
+
+  updateToutInclusOnCheckbox(complete: boolean) {
+    this.toutInclus = complete;
+    if (this.options.filter(option => option.subVal).length) {
+      return;
+    }
+
+    this.options.filter(option => option.subVal).forEach(option => option.completed = complete);
+  }
 
   ngOnInit(): void {
   }
