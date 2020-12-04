@@ -1,4 +1,13 @@
 .trips {
     max-width: 70%;
     margin: auto;
+
+    .trips-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        width: 100%;
+        padding: 5rem 0;
+    }
 }

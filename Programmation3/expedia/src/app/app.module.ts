@@ -13,6 +13,13 @@ import { TripdetailsComponent } from './tripdetails/tripdetails.component';
 import { TripcardComponent } from './tripcard/tripcard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { TripsComponent } from './trips/trips.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SidenavformComponent } from './sidenavform/sidenavform.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -21,7 +28,9 @@ import { TripsComponent } from './trips/trips.component';
     HotelComponent,
     TripdetailsComponent,
     TripcardComponent,
-    TripsComponent
+    TripsComponent,
+    SidenavComponent,
+    SidenavformComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +39,12 @@ import { TripsComponent } from './trips/trips.component';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

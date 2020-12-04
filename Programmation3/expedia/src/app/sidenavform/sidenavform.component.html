@@ -1,0 +1,9 @@
+<div class="sidenav-form">
+    <mat-slider min="1" max="5" step="0.5" thumbLabel></mat-slider>
+    <mat-form-field appearance="fill">
+    <mat-label>Nb. Jours</mat-label>
+        <mat-select [(value)]="nbJours">
+            <mat-option *ngFor="let jour of choixNbJours" value="{{jour.val}}">{{ jour.text }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>

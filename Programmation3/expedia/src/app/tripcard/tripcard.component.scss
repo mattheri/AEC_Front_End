@@ -1,6 +1,6 @@
 .carte {
     height: 10rem;
-    width: 28rem;
+    width: 20rem;
     background-image: linear-gradient(to right bottom, #74b9ff, #89c6f9, #a3d2f2, #c0dded, #dfe6e9);
     border: 3px #0984e3 solid;
     border-radius: 5px;
@@ -8,6 +8,7 @@
     padding-top: 0;
     cursor: pointer;
     position: relative;
+    display: flex;
 
     .carte-description {
         display: flex;
@@ -26,7 +27,7 @@
             }
 
             .carte-destination {
-                font-size: 1rem;
+                font-size: 0.8rem;
             }
 
             .carte-depart {
@@ -38,6 +39,7 @@
         .carte-hotel {
             color: #0984e3;
             font-size: 1.5rem;
+            margin-bottom: 0;
         }
 
     }
