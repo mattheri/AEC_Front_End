@@ -32,11 +32,9 @@ export class SidenavformComponent implements OnInit {
 
   allComplete(completed: boolean, unit: Option) {
     if (unit.subVal) {
-      if (completed) (unit.subVal as Option[]).forEach(option => option.completed = true), this.allChildCheckboxComplete = true;
+      if (completed) (unit.subVal as Option[]).forEach(option => option.completed = true), this.allChildCheckboxComplete = true, this.indeterminate = false;
       if (!completed) (unit.subVal as Option[]).forEach(option => option.completed = false), this.allChildCheckboxComplete = false, this.indeterminate = false;
     }
-
-    console.log(this.indeterminate);
   }
 
   checkIfAllComplete() {
@@ -48,21 +46,24 @@ export class SidenavformComponent implements OnInit {
     return this.options.filter(option => option.subVal)[0].subVal.every(option => !option.completed);
   }
 
-  changeToIndeterminate(completed: boolean, unit: Option) {
-    unit.completed = true;
-    if (completed && this.checkIfAllComplete()) {
-      this.indeterminate = false;
-      this.options.filter(option => option.subVal)[0].completed = true;
-      this.allChildCheckboxComplete = true;
-    }
-
+  changeToIndeterminate(completed: boolean, unit: Option) {    
     unit.completed = completed;
     this.indeterminate = true;
     this.allChildCheckboxComplete = false;
 
-    this.noneComplete = this.checkIfNoneComplete();
+    if (this.options.filter(option => option.subVal)[0].subVal.every(option => option.completed)) {
+      this.indeterminate = false;
+      this.allChildCheckboxComplete = true;
+      this.options.filter(option => option.subVal)[0].completed = true;
+    }
 
-    if (this.noneComplete) this.options.filter(option => option.subVal)[0].completed = false;
+    if (this.options.filter(option => option.subVal)[0].subVal.every(option => option.completed === false)) {
+      console.log("yay");
+      this.options.filter(option => option.subVal)[0].completed = false;
+      console.log(this.options.filter(option => option.subVal)[0].completed);
+      this.indeterminate = false;
+      this.allChildCheckboxComplete = false;
+    };
   }
 
   ngOnInit(): void {
