@@ -9,13 +9,22 @@
     <div class="checkboxes">
         <ul>
             <li *ngFor="let option of options">
-                <mat-checkbox 
-                (change)="option.subVal ? updateToutInclusOnCheckbox($event.checked) : $event.checked">
+                <mat-checkbox
+                    (change)="allComplete($event.checked, option)"
+                    [checked]="option.completed"
+                    [color]="option.color"
+                    [indeterminate]="option.subVal && indeterminate"
+                >
                     {{ option.val }}
                 </mat-checkbox>
                 <ul *ngIf="option.subVal">
                     <li *ngFor="let o of option.subVal">
-                        <mat-checkbox>{{ o.val }}</mat-checkbox>
+                        <mat-checkbox
+                          [checked]="o.completed"
+                          (change)="changeToIndeterminate($event.checked, o)"
+                        >
+                            {{ o.val }}
+                        </mat-checkbox>
                     </li>
                 </ul>
             </li>

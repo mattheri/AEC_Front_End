@@ -16,38 +16,53 @@ export class SidenavformComponent implements OnInit {
     {
       val: "Tout Inclus",
       color: "primary",
-      completed: true,
+      completed: false,
       subVal: [
-        { val: "Déjeuner inclus", completed: true, color: "accent" },
-        { val: "Dîner inclus", completed: true, color: "accent" },
-        { val: "Souper inclus", completed: true, color: "accent" },
-        { val: "Alcool Inclus", completed: true, color: "accent" }
+        { val: "Déjeuner inclus", completed: false, color: "accent" },
+        { val: "Dîner inclus", completed: false, color: "accent" },
+        { val: "Souper inclus", completed: false, color: "accent" },
+        { val: "Alcool Inclus", completed: false, color: "accent" }
       ]
     }
   ];
-  toutInclus: boolean = true;
-  updateToutInclus() {
-    this.toutInclus = this.options.filter(option => option.subVal).every(completeness => completeness.completed);
-  }
 
-  updatePasUnToutInclusMaisPresque() {
-    // si j'ai pas de subVal do nothing;
-    if (!this.options.filter(option => option.subVal).length) {
-      return false;
-    }
-     
-    // je filtre mon objet pour sortir seulement ceux qui ont un subval ensuite je filtre 
-    // les subval qui return true et je retourne true seulement quand toutInclus est aussi false
-    return this.options.filter(option => option.subVal).filter(option => option.completed) && !this.toutInclus;
-  }
+  allChildCheckboxComplete = false;
+  indeterminate: boolean = false;
+  noneComplete: boolean = false;
 
-  updateToutInclusOnCheckbox(complete: boolean) {
-    this.toutInclus = complete;
-    if (this.options.filter(option => option.subVal).length) {
-      return;
+  allComplete(completed: boolean, unit: Option) {
+    if (unit.subVal) {
+      if (completed) (unit.subVal as Option[]).forEach(option => option.completed = true), this.allChildCheckboxComplete = true;
+      if (!completed) (unit.subVal as Option[]).forEach(option => option.completed = false), this.allChildCheckboxComplete = false, this.indeterminate = false;
     }
 
-    this.options.filter(option => option.subVal).forEach(option => option.completed = complete);
+    console.log(this.indeterminate);
+  }
+
+  checkIfAllComplete() {
+    console.log(this.options.filter(option => option.subVal)[0].subVal.forEach(option => console.log(option.completed)));
+    return this.options.filter(option => option.subVal)[0].subVal.every(option => option.completed);
+  }
+
+  checkIfNoneComplete() {
+    return this.options.filter(option => option.subVal)[0].subVal.every(option => !option.completed);
+  }
+
+  changeToIndeterminate(completed: boolean, unit: Option) {
+    unit.completed = true;
+    if (completed && this.checkIfAllComplete()) {
+      this.indeterminate = false;
+      this.options.filter(option => option.subVal)[0].completed = true;
+      this.allChildCheckboxComplete = true;
+    }
+
+    unit.completed = completed;
+    this.indeterminate = true;
+    this.allChildCheckboxComplete = false;
+
+    this.noneComplete = this.checkIfNoneComplete();
+
+    if (this.noneComplete) this.options.filter(option => option.subVal)[0].completed = false;
   }
 
   ngOnInit(): void {
