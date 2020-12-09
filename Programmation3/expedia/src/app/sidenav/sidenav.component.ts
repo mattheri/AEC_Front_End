@@ -9,7 +9,12 @@ import { Filtre } from 'src/filtre';
 })
 export class SidenavComponent implements OnInit {
 
-  filtres: Partial<Filtre> = {};
+  filtres: Filtre = {
+    choix: [],
+    dateDepart: new Date(Date.now()),
+    nbEtoiles: 0,
+    nbJours: 7
+  };
 
   mobileQuery: MediaQueryList;
 
@@ -22,8 +27,8 @@ export class SidenavComponent implements OnInit {
   }
 
   ajoutFiltre(nv: Filtre) {
-    this.filtres = { ...nv };
     console.log(this.filtres);
+    this.filtres = nv;
   }
 
   ngOnDestroy(): void {
