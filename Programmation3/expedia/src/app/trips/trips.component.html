@@ -1,8 +1,8 @@
 <div class="trips">
     <div class="trips-cards">
-        <app-tripcard *ngFor="let forfait of forfaitsDispo | appliqueFiltre: filtre"></app-tripcard>
+        <app-tripcard *ngFor="let forfait of forfaitsDispo | appliqueFiltre: filtre:updateOnFiltreChange()"></app-tripcard>
     </div>
     <div class="trips-details">
-        <app-tripdetails *ngFor="let forfait of forfaitsDispo | appliqueFiltre: filtre"></app-tripdetails>
+        <app-tripdetails *ngFor="let forfait of forfaitsDispo | appliqueFiltre: filtre:updateOnFiltreChange()"></app-tripdetails>
     </div>
 </div>

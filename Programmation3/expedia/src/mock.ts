@@ -11,7 +11,7 @@ export const forfaits: Forfait[] = [
             nom: "Hotel Emporio Cancun",
             coordonnees: "Blvd. Kukulcan Lt45-47, Zona Hotelera, 77500 Cancún, Q.R., Mexico",
             caracteristiques: ["Spa", "Pool", "Dining", "Breakfast", "Exercice Room"],
-            etoiles: 4.5,
+            etoiles: 2.5,
             nbChambres: 1
         }
     },
