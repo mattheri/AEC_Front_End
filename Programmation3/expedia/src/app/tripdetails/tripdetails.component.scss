@@ -2,11 +2,10 @@
     display: block;
     width: 70vw;
     height: 18rem;
-    background-color: black;
     display: flex;
 
     &-img {
-        max-width: 8rem;
+        max-width: 25rem;
         height: auto;
     }
 }

@@ -30,19 +30,8 @@ export class TripsComponent implements OnInit {
   forfaitsDispo = forfaits;
 
   @Input() filtre: Filtre;
-  updated: Date = new Date(Date.now());
-  
-  updateOnFiltreChange() {
-    const oldValue: Filtre = this.filtre;
-    Object.entries(oldValue).map(([key, value]) => {
-      if (this.filtre[key] !== value) {
-        return new Date(Date.now());
-      }
-    })
-  }
 
   ngOnInit() {
-    console.log(this.filtre)
   }
 
 }
