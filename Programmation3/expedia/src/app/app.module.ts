@@ -24,6 +24,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatInputModule } from '@angular/material/input';
 import { AppliqueFiltrePipe } from './applique-filtre.pipe';
+import { GestionForfaitFOrmComponent } from './gestion-forfait-form/gestion-forfait-form.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AppliqueFiltrePipe } from './applique-filtre.pipe';
     TripsComponent,
     SidenavComponent,
     SidenavformComponent,
-    AppliqueFiltrePipe
+    AppliqueFiltrePipe,
+    GestionForfaitFOrmComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { AppliqueFiltrePipe } from './applique-filtre.pipe';
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

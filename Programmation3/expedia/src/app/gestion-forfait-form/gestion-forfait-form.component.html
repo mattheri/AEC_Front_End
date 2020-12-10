@@ -1,0 +1,89 @@
+<form>
+    <mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of destinations" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+        <mat-label>
+            Destination
+        </mat-label>
+        <input 
+        type="text" 
+        matInput 
+        placeholder="Mexique" 
+        required [matAutocomplete]="auto">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-autocomplete #autoDepart="matAutocomplete">
+            <mat-option *ngFor="let option of villeDepart" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>
+        <mat-label>
+            Ville de Départ
+        </mat-label>
+        <input 
+        type="text" 
+        matInput 
+        placeholder="Québec" 
+        required [matAutocomplete]="autoDepart">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            Nom de l'hôtel
+        </mat-label>
+        <input 
+        type="text" 
+        matInput 
+        required 
+        minlength="2">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            Coordonées
+        </mat-label>
+        <input 
+        type="text" 
+        matInput 
+        required 
+        minlength="2">
+    </mat-form-field>
+    <mat-label>Nb. Étoiles</mat-label>
+    <mat-slider min="0" max="5" step="0.5" thumbLabel></mat-slider>
+    <section class="checkbox">
+        <mat-checkbox *ngFor="let option of checkbox">{{ option }}</mat-checkbox>
+    </section>
+    <mat-form-field>
+        <mat-label>
+            Nombre de chambres
+        </mat-label>
+        <input 
+        type="number" 
+        matInput 
+        required 
+        min="1">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Date de départ</mat-label>
+        <input matInput [matDatepicker]="departPicker">
+        <mat-datepicker-toggle matSuffix [for]="departPicker"></mat-datepicker-toggle>
+        <mat-datepicker #departPicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Date de retour</mat-label>
+        <input matInput [matDatepicker]="retourPicker">
+        <mat-datepicker-toggle matSuffix [for]="retourPicker"></mat-datepicker-toggle>
+        <mat-datepicker #retourPicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>
+            Prix
+        </mat-label>
+        <input 
+        type="number" 
+        matInput 
+        required 
+        min="1">
+    </mat-form-field>
+</form>
