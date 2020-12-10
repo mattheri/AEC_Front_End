@@ -7,4 +7,6 @@ export interface Forfait {
     dateDepart: Date;
     dateRetour: Date;
     prix: number;
+    nbJours: number;
+    rabais?: number;
 }

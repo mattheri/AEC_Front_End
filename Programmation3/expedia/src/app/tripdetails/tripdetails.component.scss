@@ -1,11 +1,120 @@
 .trip-detail {
-    display: block;
-    width: 70vw;
-    height: 18rem;
     display: flex;
+    flex-wrap: wrap;
+    background-image: linear-gradient(to right bottom, #74b9ff, #89c6f9, #a3d2f2, #c0dded, #dfe6e9);
+    margin-bottom: 1rem;
 
     &-img {
         max-width: 25rem;
         height: auto;
     }
+
+    &-details {
+        width: calc(100% - 25rem);
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+    }
+
+    &-section {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 17rem;
+        padding: 0 .5rem;
+        max-width: 25%;
+    }
+
+    &-hotel {
+        &-name {
+            h3 {
+                font-size: 22px;
+                font-weight: 600;
+            }
+        }
+    }
+
+    &-forfait {
+        &-destination {
+            h1 {
+                font-size: 22px;
+                font-weight: 600;
+            }
+        }
+    }
+
+    &-forfait-prix {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        p {
+            font-size: 22px;
+            font-weight: 600;
+
+            &.barre {
+                text-decoration: line-through;
+            }
+        }
+
+        .rabais {
+            font-size: 30px;
+            font-weight: 600;
+            color: red;
+        }
+    }
+
+    .label {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    &-caracteristiques {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        .caracteristiques {
+            display: flex;
+            align-items: center;
+            padding: 0.2rem 0.4rem;
+            background-color: rgb(199, 199, 199);
+            margin-right: 0.2rem;
+            margin-bottom: 5px;
+            max-height: 1.3rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color .2s;
+
+            &:hover {
+                background-color: rgb(180, 178, 178);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+
+        &-img {
+            max-width: auto;
+            height: 8rem;
+            display: none;
+        }
+
+        &-details {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+        }
+    }
+
 }

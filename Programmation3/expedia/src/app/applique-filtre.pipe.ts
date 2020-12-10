@@ -15,16 +15,10 @@ export class AppliqueFiltrePipe implements PipeTransform {
     For time's sake, I implemented the pipe as an 'impure' one. NOT PERFORMANT, runs every change in the lifecycle.
     Should keep the transformation to a minimum.*/
 
-    console.log(forfaits
-      .filter(forfait => forfait.dateDepart >= filtre.dateDepart)
-      .filter(forfait => filtre.nbEtoiles ? forfait.hotel.etoiles >= filtre.nbEtoiles : forfait)
-      .filter(forfait => ((forfait.dateRetour.valueOf() - forfait.dateDepart.valueOf()) / (1000 * 3600 * 24)) >= filtre.nbJours)
-      .filter(forfait => filtre.choix.length ? forfait.hotel.caracteristiques.some((car) => filtre.choix.some(choix => car === choix.val)) : forfait))
-
     return forfaits
       .filter(forfait => forfait.dateDepart >= filtre.dateDepart)
       .filter(forfait => filtre.nbEtoiles ? forfait.hotel.etoiles >= filtre.nbEtoiles : forfait)
-      .filter(forfait => ((forfait.dateRetour.valueOf() - forfait.dateDepart.valueOf()) / (1000 * 3600 * 24)) >= filtre.nbJours)
-      .filter(forfait => filtre.choix.length ? forfait.hotel.caracteristiques.some((car) => filtre.choix.some(choix => car === choix.val)) : forfait);
+      .filter(forfait => forfait.nbJours >= filtre.nbJours)
+      .filter(forfait => filtre.choix.length ? forfait.hotel.caracteristiques.find((car) => filtre.choix.find(choix => car === choix.val)) : forfait);
   }
 }

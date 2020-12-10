@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Forfait } from 'src/forfait';
 
 @Component({
   selector: 'app-tripcard',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class TripcardComponent implements OnInit {
 
   constructor() { }
+
+  @Input() forfait: Forfait;
 
   ngOnInit(): void {
   }

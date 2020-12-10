@@ -19,6 +19,7 @@
         .destination-depart {
             display: flex;
             align-items: center;
+            font-size: 0.8rem;
 
             .carte-destination, .carte-depart {
                 text-transform: uppercase;
@@ -63,6 +64,16 @@
                 padding-top: 2.5rem;
                 margin-bottom: 0;
                 padding-bottom: 0;
+
+                &.barre {
+                    text-decoration: line-through;
+                }
+            }
+
+            .rabais {
+                font-size: 30px;
+                font-weight: 600;
+                color: red;
             }
 
             .inclusions {
@@ -78,7 +89,11 @@
             color: #636e72;
 
             .depart {
-                padding-right: 0.2rem;
+                font-size: 0.8rem;
+            }
+
+            .duree {
+                font-size: 0.8rem;
             }
         }
     }

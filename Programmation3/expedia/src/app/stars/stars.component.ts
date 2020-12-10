@@ -12,18 +12,24 @@ export class StarsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    for (let i = 5; i > 0; i--) {
-      if (i - this.etoiles > 1) {
-        this.etoile.push("star");
-      }
+    let nbEtoiles = this.etoiles;
+    let half = false;
+    let left = 5 - this.etoiles;
+    if (this.etoiles - 5 < 0) {
+      nbEtoiles = this.etoiles - 0.5;
+      half = true;
+      left -= 0.5;
+    }
+    while (nbEtoiles--) {
+      this.etoile.push("star");
+    }
 
-      if ((i - this.etoiles) < 1 && (i - this.etoiles) > 0) {
-        this.etoile.push("star half");
-      }
+    if (half) {
+      this.etoile.push("star half");
+    }
 
-      if ((i - this.etoiles) < 0) {
-        this.etoile.push("star empty");
-      }
+    while (left--) {
+      this.etoile.push("star empty");
     }
   }
 

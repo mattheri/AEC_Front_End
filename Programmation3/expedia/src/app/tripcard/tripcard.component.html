@@ -2,21 +2,22 @@
 
             <div class="carte-description">
                 <div class="destination-depart">
-                    <h3 class="carte-destination">Rivera Maya (MX)</h3>
-                    <p class="carte-depart">de Québec</p>
+                    <h3 class="carte-destination">{{ forfait.destination }}</h3>
+                    <p class="carte-depart">{{ forfait.villeDepart }}</p>
                 </div>
-                <h2 class="carte-hotel">Bahia Principe Grand Tulum</h2>
+                <h2 class="carte-hotel">{{ forfait.hotel.nom }}</h2>
                 <app-stars etoiles="2.5"></app-stars>
             </div>
 
             <div class="carte-details">
                 <div class="carte-prix">
-                    <h1 class="prix">1 549$</h1>
+                    <span *ngIf="forfait.rabais > 0" class="rabais"> {{ forfait.prix - forfait.rabais }}$</span>
+                    <h1 [ngClass]="{'prix': true, 'barre': forfait.rabais > 0}">{{ forfait.prix }}$</h1>
                     <small class="inclusions">Taxes et frais inclus</small>
                 </div>
                 <div class="carte-duree">
-                    <p class="depart">31 mars 2021,</p>
-                    <p class="duree">7 jours</p>
+                    <p class="depart">{{ forfait.dateDepart | date: "fullDate" }},</p>
+                    <p class="duree">{{ forfait.nbJours }} jours</p>
                 </div>
             </div>
 

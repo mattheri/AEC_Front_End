@@ -1,18 +1,53 @@
-<!-- <div class="trip-detail">
-    <mat-grid-list cols="6" gutterSize="0" rowHeight="20rem">
-        <mat-grid-tile colspan="1">
-            <img class="trip-detail-img" src="https://miro.medium.com/max/700/1*6D9Dy-yE7EfCermiI5rIWA.jpeg" />
-        </mat-grid-tile>
-        <mat-grid-tile colspan="4">
-            <div class="trip-detail-details">
-                Helloooo
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-</div> -->
 <div class="trip-detail">
     <img class="trip-detail-img" src="https://miro.medium.com/max/700/1*6D9Dy-yE7EfCermiI5rIWA.jpeg" />
     <div class="trip-detail-details">
-        Hello
+        <div class="trip-detail-section">
+            <div class="trip-detail-hotel">
+                <div class="trip-detail-hotel-name">
+                    <h3>{{ forfait.hotel.nom }}</h3>
+                </div>
+                <div class="trip-detail-hotel-rating">
+                    <app-stars [etoiles]="forfait.hotel.etoiles"></app-stars>
+                </div>
+                <div class="trip-detail-hotel-chambres">
+                    <span class="label">Chambres: </span>
+                    <p>{{ forfait.hotel.nbChambres }}</p>
+                </div>
+                <div class="trip-detail-hotel-coordonees">
+                    <span class="label">Coordonnées: </span>
+                    <p>{{ forfait.hotel.coordonnees }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="trip-detail-section">
+            <div class="trip-detail-caracteristiques">
+                <span class="caracteristiques" *ngFor="let car of forfait.hotel.caracteristiques">{{ car }}</span>
+            </div>
+        </div>
+        <div class="trip-detail-section">
+            <div class="trip-detail-forfait">
+                <div class="trip-detail-forfait-destination">
+                    <h1>{{ forfait.destination }}</h1>
+                </div>
+                <div class="trip-detail-forfait-villeDepart">
+                    <span class="label">De: </span>
+                    <h3>{{ forfait.villeDepart }}</h3>
+                </div>
+                <div class="trip-detail-forfait-dateDepart">
+                    <span class="label">Date de départ:</span>
+                    <p>{{ forfait.dateDepart | date: "fullDate" }}</p>
+                </div>
+                <div class="trip-detail-forfait-dateDepart">
+                    <span class="label">Date d'arrivée:</span>
+                    <p>{{ forfait.dateRetour | date: "fullDate" }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="trip-detail-section">
+            <div class="trip-detail-forfait-prix">
+                <p [ngClass]="{'barre': forfait.rabais > 0}">{{ forfait.prix }}$</p>
+                <span *ngIf="forfait.rabais > 0" class="rabais"> {{ forfait.prix - forfait.rabais }}$</span>
+            </div>
+        </div>
     </div>
 </div>
