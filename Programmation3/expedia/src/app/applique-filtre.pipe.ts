@@ -4,10 +4,9 @@ import { Forfait } from 'src/forfait';
 
 @Pipe({
   name: 'appliqueFiltre',
-  pure: false
+  pure: false,
 })
 export class AppliqueFiltrePipe implements PipeTransform {
-
   transform(forfaits: Forfait[], filtre: Filtre): Forfait[] {
     /* Pipe is not being updated everytime filtre is updated.
     Reason it is not working is that Angular doesn't actually check the content of the object or array.
@@ -16,9 +15,19 @@ export class AppliqueFiltrePipe implements PipeTransform {
     Should keep the transformation to a minimum.*/
 
     return forfaits
-      .filter(forfait => forfait.dateDepart >= filtre.dateDepart)
-      .filter(forfait => filtre.nbEtoiles ? forfait.hotel.etoiles >= filtre.nbEtoiles : forfait)
-      .filter(forfait => forfait.nbJours >= filtre.nbJours)
-      .filter(forfait => filtre.choix.length ? forfait.hotel.caracteristiques.find((car) => filtre.choix.find(choix => car === choix.val)) : forfait);
+      .filter((forfait) => forfait.dateDepart >= filtre.dateDepart)
+      .filter((forfait) =>
+        filtre.nbEtoiles
+          ? forfait.hotel.nombreEtoiles >= filtre.nbEtoiles
+          : forfait
+      )
+      .filter((forfait) => forfait.nbJours >= filtre.nbJours)
+      .filter((forfait) =>
+        filtre.choix.length
+          ? forfait.hotel.caracteristiques.find((car) =>
+              filtre.choix.find((choix) => car === choix.val)
+            )
+          : forfait
+      );
   }
 }

@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ForfaitsService } from './forfaits.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,11 +23,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from "@angular/material/core";
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { AppliqueFiltrePipe } from './applique-filtre.pipe';
 import { GestionForfaitFOrmComponent } from './gestion-forfait-form/gestion-forfait-form.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AdministrationComponent } from './administration/administration.component';
+import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { UpdatedialogComponent } from './updatedialog/updatedialog.component';
+import { CreatedialogComponent } from './createdialog/createdialog.component';
+import { GestionForfaitFormAjoutComponent } from './gestion-forfait-form-ajout/gestion-forfait-form-ajout.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +47,11 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     SidenavComponent,
     SidenavformComponent,
     AppliqueFiltrePipe,
-    GestionForfaitFOrmComponent
+    GestionForfaitFOrmComponent,
+    AdministrationComponent,
+    UpdatedialogComponent,
+    CreatedialogComponent,
+    GestionForfaitFormAjoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,9 +69,13 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    HttpClientModule,
+    MatListModule,
+    MatDialogModule,
+    MatTableModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ForfaitsService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,19 +1,18 @@
-import { Component, OnInit, Input, Optional } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Forfait } from 'src/forfait';
 import { ForfaitsService } from '../forfaits.service';
 
 @Component({
-  selector: 'app-gestion-forfait-form',
-  templateUrl: './gestion-forfait-form.component.html',
-  styleUrls: ['./gestion-forfait-form.component.scss'],
+  selector: 'app-gestion-forfait-form-ajout',
+  templateUrl: './gestion-forfait-form-ajout.component.html',
+  styleUrls: ['./gestion-forfait-form-ajout.component.scss'],
 })
-export class GestionForfaitFOrmComponent implements OnInit {
+export class GestionForfaitFormAjoutComponent implements OnInit {
   constructor(
     private forfaitsService: ForfaitsService,
     public dialog: MatDialog
   ) {}
-  @Input() forfait: Forfait;
   destinations = ['Mexique', 'République Dominicaine', 'Costa Rica'];
   villeDepart = ['Québec', 'Montréal'];
   checkbox: [
@@ -29,7 +28,8 @@ export class GestionForfaitFOrmComponent implements OnInit {
     'Souper inlcus',
     'Restaurants'
   ];
-
+  @Input() forfaits: Forfait[];
+  @Input() close: () => void;
   local_data: Forfait = {
     dateDepart: new Date(Date.now()),
     dateRetour: new Date(Date.now()),
@@ -45,9 +45,11 @@ export class GestionForfaitFOrmComponent implements OnInit {
     prix: 0,
     villeDepart: '',
     rabais: 0,
+    da: '1996386',
   };
 
   updateDestination(value: string) {
+    console.log(value);
     this.local_data.destination = value;
   }
   updateDateDepart(value: Date) {
@@ -77,20 +79,20 @@ export class GestionForfaitFOrmComponent implements OnInit {
     this.local_data.prix = value;
   }
   updateNbJours(dateDepart?: Date, dateRetour?: Date) {
-    const depart = dateDepart || this.forfait.dateDepart;
-    const retour = dateRetour || this.forfait.dateRetour;
+    const depart = dateDepart || this.local_data.dateDepart;
+    const retour = dateRetour || this.local_data.dateRetour;
 
     this.local_data.nbJours =
       (retour.valueOf() - depart.valueOf()) / (1000 * 3600 * 24);
   }
 
-  updateForfait(data: Forfait) {
-    this.forfaitsService.updateForfait(data, this.forfait._id).subscribe(() => {
-      this.dialog.closeAll();
+  ajoutForfait(forfait: Forfait) {
+    this.forfaitsService.addForfait(forfait).subscribe((result) => {
+      if (result._id) {
+        this.dialog.closeAll();
+      }
     });
   }
 
-  ngOnInit(): void {
-    this.local_data = this.forfait;
-  }
+  ngOnInit(): void {}
 }

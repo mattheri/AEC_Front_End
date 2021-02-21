@@ -1,11 +1,12 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges, DoCheck } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Filtre } from 'src/filtre';
-import { forfaits } from "../../mock";
+import { Forfait } from 'src/forfait';
+import { ForfaitsService } from '../forfaits.service';
 
 @Component({
   selector: 'app-trips',
   templateUrl: './trips.component.html',
-  styleUrls: ['./trips.component.scss']
+  styleUrls: ['./trips.component.scss'],
 })
 // export class TripsComponent implements OnChanges {
 
@@ -25,13 +26,18 @@ import { forfaits } from "../../mock";
 
 // }
 export class TripsComponent implements OnInit {
-
-  constructor() { }
-  forfaitsDispo = forfaits;
+  constructor(private forfaitsService: ForfaitsService) {}
+  forfaitsDispo: Forfait[];
 
   @Input() filtre: Filtre;
 
   ngOnInit() {
+    this.getForfaits();
   }
 
+  getForfaits() {
+    this.forfaitsService
+      .getForfaits()
+      .subscribe((result) => (this.forfaitsDispo = result));
+  }
 }

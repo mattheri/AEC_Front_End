@@ -6,7 +6,7 @@
                     <p class="carte-depart">{{ forfait.villeDepart }}</p>
                 </div>
                 <h2 class="carte-hotel">{{ forfait.hotel.nom }}</h2>
-                <app-stars etoiles="2.5"></app-stars>
+                <app-stars etoiles="{{ forfait.hotel.nombreEtoiles }}"></app-stars>
             </div>
 
             <div class="carte-details">

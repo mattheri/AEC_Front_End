@@ -12,7 +12,6 @@
         type="text" 
         matInput 
         placeholder="Mexique"
-        value="{{ forfait.destination }}"
         (change)="updateDestination($event.target.value)"
         required [matAutocomplete]="auto">
     </mat-form-field>
@@ -29,7 +28,6 @@
         type="text" 
         matInput 
         placeholder="Québec"
-        value="{{ forfait.villeDepart }}"
         (change)="updateVilleDepart($event.target.value)"
         required [matAutocomplete]="autoDepart">
     </mat-form-field>
@@ -39,10 +37,9 @@
         </mat-label>
         <input 
         type="text" 
-        matInput 
+        matInput
+        (change)="updateNomHotel($event.target.value)" 
         required
-        (change)="updateNomHotel($event.target.value)"
-        value="{{ forfait.hotel.nom }}" 
         minlength="2">
     </mat-form-field>
     <mat-form-field>
@@ -53,12 +50,11 @@
         type="text" 
         matInput 
         required
-        (change)="updateCoordoneesHotel($event.target.value)"
-        value="{{ forfait.hotel.coordonnees }}" 
+        (change)="updateCoordoneesHotel($event.target.value)" 
         minlength="2">
     </mat-form-field>
     <mat-label>Nb. Étoiles</mat-label>
-    <mat-slider (change)="updateNbEtoiles($event.value)" value="{{ forfait.hotel.nombreEtoiles }}" min="0" max="5" step="0.5" thumbLabel></mat-slider>
+    <mat-slider (change)="updateNbEtoiles($event.value)" min="0" max="5" step="0.5" thumbLabel></mat-slider>
     <section class="checkbox">
         <mat-checkbox *ngFor="let option of checkbox" [checked]="forfait.hotel.caracteristiques">{{ option }}</mat-checkbox>
     </section>
@@ -71,18 +67,17 @@
         matInput 
         required
         (change)="updateNbChambres($event.target.value)"
-        value="{{ forfait.hotel.nombreChambres }}" 
         min="1">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Date de départ</mat-label>
-        <input (dateChange)="updateDateDepart($event.target.value)" matInput value="{{ forfait.dateDepart }}" [matDatepicker]="departPicker">
+        <input (dateChange)="updateDateDepart($event.target.value)" matInput [matDatepicker]="departPicker">
         <mat-datepicker-toggle matSuffix [for]="departPicker"></mat-datepicker-toggle>
         <mat-datepicker #departPicker></mat-datepicker>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Date de retour</mat-label>
-        <input (dateChange)="updateDateRetour($event.target.value)" matInput value="{{ forfait.dateRetour }}" [matDatepicker]="retourPicker">
+        <input (dateChange)="updateDateRetour($event.target.value)" matInput [matDatepicker]="retourPicker">
         <mat-datepicker-toggle matSuffix [for]="retourPicker"></mat-datepicker-toggle>
         <mat-datepicker #retourPicker></mat-datepicker>
     </mat-form-field>
@@ -95,8 +90,7 @@
         matInput 
         required
         (change)="updatePrix($event.target.value)"
-        value="{{ forfait.prix }}"
         min="1">
     </mat-form-field>
-    <button (click)="updateForfait(local_data)" mat-raised-button color="primary">Mettre à jour</button>
+    <button (click)="ajoutForfait(local_data)" mat-raised-button color="primary">Ajouter</button>
 </form>
