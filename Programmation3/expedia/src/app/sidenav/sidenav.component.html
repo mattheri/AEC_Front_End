@@ -1,6 +1,40 @@
 <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">Responsive App</h1>
+    <!-- <h1 class="example-app-name">Menu</h1> -->
+    <!-- <ul class="menu">
+      <li>
+        <a routerLink="/">Acceuil</a>
+      </li>
+      <li>
+        <ul>
+          <li>
+            <a routerLink="/administration/panel">Administration</a>
+          </li>
+          <li>
+            <a routerLink="/administration/graph">Graphiques</a>
+          </li>
+        </ul>
+      </li>
+    </ul> -->
+    <button mat-button [matMenuTriggerFor]="navigation">Menu</button>
+    <!-- #docregion sub-menu -->
+    <mat-menu #navigation="matMenu">
+      <button mat-menu-item>
+        <a routerLink="/">Acceuil</a>
+      </button>
+      <button mat-menu-item [matMenuTriggerFor]="administration">
+        Administration
+      </button>
+    </mat-menu>
+    <!-- #enddocregion sub-menu -->
+    <mat-menu #administration="matMenu">
+      <button mat-menu-item>
+        <a routerLink="/administration/panel">Administration</a>
+      </button>
+      <button mat-menu-item>
+        <a routerLink="/administration/graph">Graphiques</a>
+      </button>
+    </mat-menu>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
@@ -10,7 +44,8 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <!-- <app-trips [filtre]="filtres"></app-trips> -->
-      <app-administration></app-administration>
+      <!-- <app-trips [filtre]="filtres"></app-trips>
+      <app-administration></app-administration> -->
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

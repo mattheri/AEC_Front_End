@@ -35,6 +35,8 @@ import { MatTableModule } from '@angular/material/table';
 import { UpdatedialogComponent } from './updatedialog/updatedialog.component';
 import { CreatedialogComponent } from './createdialog/createdialog.component';
 import { GestionForfaitFormAjoutComponent } from './gestion-forfait-form-ajout/gestion-forfait-form-ajout.component';
+import { GraphComponent } from './graph/graph.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { GestionForfaitFormAjoutComponent } from './gestion-forfait-form-ajout/g
     UpdatedialogComponent,
     CreatedialogComponent,
     GestionForfaitFormAjoutComponent,
+    GraphComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +77,7 @@ import { GestionForfaitFormAjoutComponent } from './gestion-forfait-form-ajout/g
     MatListModule,
     MatDialogModule,
     MatTableModule,
+    MatMenuModule,
   ],
   providers: [ForfaitsService],
   bootstrap: [AppComponent],

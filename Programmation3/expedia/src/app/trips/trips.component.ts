@@ -8,23 +8,6 @@ import { ForfaitsService } from '../forfaits.service';
   templateUrl: './trips.component.html',
   styleUrls: ['./trips.component.scss'],
 })
-// export class TripsComponent implements OnChanges {
-
-//   constructor() { }
-//   forfaitsDispo = forfaits;
-
-//   @Input() filtre: Filtre;
-//   changeDetected: boolean = false;
-//   changelog: Filtre[];
-//   oldValue: Partial<Filtre> = {};
-
-//   ngOnChanges(changes: SimpleChanges) {
-//     for (const i in changes) {
-//       console.log(changes[i].currentValue);
-//     }
-//   }
-
-// }
 export class TripsComponent implements OnInit {
   constructor(private forfaitsService: ForfaitsService) {}
   forfaitsDispo: Forfait[];
