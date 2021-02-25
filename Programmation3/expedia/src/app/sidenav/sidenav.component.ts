@@ -26,7 +26,6 @@ export class SidenavComponent implements OnInit {
   }
 
   ajoutFiltre(nv: Filtre) {
-    console.log(this.filtres);
     this.filtres = nv;
   }
 

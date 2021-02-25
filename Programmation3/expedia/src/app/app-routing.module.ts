@@ -14,6 +14,7 @@ const routes: Routes = [
       { path: 'graph', component: GraphComponent },
     ],
   },
+  { path: 'forfaits/:destination', component: TripsComponent },
 ];
 
 @NgModule({
