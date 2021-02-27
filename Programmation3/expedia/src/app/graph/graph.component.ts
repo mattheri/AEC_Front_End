@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ForfaitsService } from '../forfaits.service';
 import { Forfait } from 'src/forfait';
-import { ChartType, ChartOptions } from 'chart.js';
+import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import {
   SingleDataSet,
   Label,
@@ -24,6 +24,14 @@ export class GraphComponent implements OnInit {
   public pieChartLegend = true;
   public pieChartPlugins = [];
 
+  public barChartLabels: Label[] = [];
+  public barChartData: ChartDataSets[] = [];
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = true;
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+  };
+
   constructor(private forfaitsService: ForfaitsService) {
     monkeyPatchChartJsTooltip();
     monkeyPatchChartJsLegend();
@@ -40,21 +48,32 @@ export class GraphComponent implements OnInit {
           (forfait) => forfait.destination.toLowerCase() === label
         ).length
     );
-    console.log([
+  }
+
+  generateBarChart(forfaits: Forfait[]) {
+    this.barChartLabels = [
       ...new Set(forfaits.map((forfait) => forfait.destination.toLowerCase())),
-    ]);
-    console.log(
-      this.pieChartLabels.map(
-        (label) =>
-          forfaits.filter(
+    ];
+    this.barChartData = [
+      {
+        data: this.barChartLabels.map((label) => {
+          const forfait = forfaits.filter(
             (forfait) => forfait.destination.toLowerCase() === label
-          ).length
-      )
-    );
+          );
+          const length = forfait.length;
+          const prix = forfait.map((forfait) => forfait.prix);
+          const prixTotal = prix.reduce((acc, val) => +acc + +val);
+          const moyenne = prixTotal / length;
+          return moyenne;
+        }),
+        label: 'Moyenne de prix',
+      },
+    ];
   }
 
   generateGraph(forfaits: Forfait[]) {
     this.generatePieChart(forfaits);
+    this.generateBarChart(forfaits);
 
     return forfaits;
   }
