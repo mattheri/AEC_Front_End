@@ -31,8 +31,8 @@ export class GestionForfaitFOrmComponent implements OnInit {
   ];
 
   local_data: Forfait = {
-    dateDepart: new Date(Date.now()),
-    dateRetour: new Date(Date.now()),
+    dateDepart: 0,
+    dateRetour: 0,
     destination: '',
     hotel: {
       caracteristiques: [],
@@ -76,18 +76,56 @@ export class GestionForfaitFOrmComponent implements OnInit {
   updatePrix(value: number) {
     this.local_data.prix = value;
   }
+  updateRabais(value: number) {
+    this.local_data.rabais = value;
+  }
   updateNbJours(dateDepart?: Date, dateRetour?: Date) {
-    const depart = dateDepart || this.forfait.dateDepart;
-    const retour = dateRetour || this.forfait.dateRetour;
+    const depart = dateDepart || new Date(this.forfait.dateDepart);
+    const retour = dateRetour || new Date(this.forfait.dateRetour);
 
-    this.local_data.nbJours =
-      (retour.valueOf() - depart.valueOf()) / (1000 * 3600 * 24);
+    this.local_data.nbJours = parseInt(
+      (
+        Math.round(retour.valueOf() - depart.valueOf()) / (1000 * 3600 * 24) +
+        1
+      ).toFixed(0)
+    );
   }
 
-  updateForfait(data: Forfait) {
-    this.forfaitsService.updateForfait(data, this.forfait._id).subscribe(() => {
-      this.dialog.closeAll();
-    });
+  updateForfait(event, data: Forfait) {
+    event.preventDefault();
+    this.forfaitsService
+      .updateForfait(data, this.forfait._id)
+      .subscribe((result) => {
+        console.log(result);
+        this.dialog.closeAll();
+      });
+  }
+
+  validate() {
+    const {
+      dateDepart,
+      dateRetour,
+      destination,
+      hotel: { coordonnees, nom, nombreChambres, nombreEtoiles },
+      prix,
+      villeDepart,
+    } = this.local_data;
+    const validator =
+      dateDepart &&
+      dateRetour &&
+      destination.length &&
+      coordonnees.length &&
+      nom.length &&
+      nombreChambres > 0 &&
+      nombreEtoiles > 0 &&
+      prix > 0 &&
+      villeDepart.length;
+
+    if (validator) {
+      return false;
+    }
+
+    return true;
   }
 
   ngOnInit(): void {

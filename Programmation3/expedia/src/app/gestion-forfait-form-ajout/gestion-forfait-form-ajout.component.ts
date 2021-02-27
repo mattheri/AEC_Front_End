@@ -78,20 +78,55 @@ export class GestionForfaitFormAjoutComponent implements OnInit {
   updatePrix(value: number) {
     this.local_data.prix = value;
   }
+  updateRabais(value: number) {
+    this.local_data.rabais = value;
+  }
   updateNbJours(dateDepart?: Date, dateRetour?: Date) {
     const depart = dateDepart || this.local_data.dateDepart;
     const retour = dateRetour || this.local_data.dateRetour;
 
-    this.local_data.nbJours =
-      (retour.valueOf() - depart.valueOf()) / (1000 * 3600 * 24);
+    this.local_data.nbJours = parseInt(
+      (
+        Math.round(retour.valueOf() - depart.valueOf()) / (1000 * 3600 * 24) +
+        1
+      ).toFixed(0)
+    );
   }
 
-  ajoutForfait(forfait: Forfait) {
+  ajoutForfait(event, forfait: Forfait) {
+    event.preventDefault();
     this.forfaitsService.addForfait(forfait).subscribe((result) => {
       if (result._id) {
         this.dialog.closeAll();
       }
     });
+  }
+
+  validate() {
+    const {
+      dateDepart,
+      dateRetour,
+      destination,
+      hotel: { coordonnees, nom, nombreChambres, nombreEtoiles },
+      prix,
+      villeDepart,
+    } = this.local_data;
+    const validator =
+      dateDepart &&
+      dateRetour &&
+      destination.length &&
+      coordonnees.length &&
+      nom.length &&
+      nombreChambres > 0 &&
+      nombreEtoiles > 0 &&
+      prix > 0 &&
+      villeDepart.length;
+
+    if (validator) {
+      return false;
+    }
+
+    return true;
   }
 
   ngOnInit(): void {}

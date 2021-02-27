@@ -13,14 +13,14 @@ export class StarsComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.etoiles) {
-      for (let i = 1; i <= this.etoiles; i++) {
-        if (i + 0.5 === this.etoiles) {
+      for (let i = 0; i < this.etoiles; i++) {
+        if (i + 0.5 === +this.etoiles) {
           this.etoile.push('star half');
           break;
         }
         this.etoile.push('star');
       }
-      for (let i = 5; i > this.etoiles; i--) {
+      for (let i = 4; i > +this.etoiles; i--) {
         this.etoile.push('star empty');
       }
     }

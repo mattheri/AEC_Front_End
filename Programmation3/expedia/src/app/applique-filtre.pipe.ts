@@ -4,7 +4,7 @@ import { Forfait } from 'src/forfait';
 
 @Pipe({
   name: 'appliqueFiltre',
-  // pure: false,
+  pure: false,
 })
 export class AppliqueFiltrePipe implements PipeTransform {
   transform(forfaits: Forfait[], filtre: Filtre): Forfait[] {
@@ -13,32 +13,17 @@ export class AppliqueFiltrePipe implements PipeTransform {
     Since I merely update filtre and doesn't change its reference, the pipe is not being updated.
     For time's sake, I implemented the pipe as an 'impure' one. NOT PERFORMANT, runs every change in the lifecycle.
     Should keep the transformation to a minimum.*/
-
-    console.log('filtre', filtre);
-    if (forfaits && filtre) {
-      console.log(
-        'return',
-        forfaits.filter(
+    if (forfaits) {
+      return forfaits
+        .filter(
           (forfait) =>
-            forfait.dateDepart.valueOf() <= filtre.dateDepart.valueOf()
+            filtre.dateDepart.valueOf() <=
+            new Date(forfait.dateDepart).valueOf()
         )
-      );
-      return forfaits;
-      // .filter((forfait) => forfait.dateDepart >= filtre.dateDepart)
-      // .filter((forfait) =>
-      //   filtre.nbEtoiles
-      //     ? forfait.hotel.nombreEtoiles >= filtre.nbEtoiles
-      //     : forfait
-      // )
-      // .filter((forfait) => forfait.nbJours >= filtre.nbJours)
-      // .filter((forfait) =>
-      //   filtre.choix.length
-      //     ? forfait.hotel.caracteristiques.find((car) =>
-      //         filtre.choix.find((choix) => car === choix.val)
-      //       )
-      //     : forfait
-      // );
+        .filter((forfait) => forfait.hotel.nombreEtoiles >= filtre.nbEtoiles)
+        .filter((forfait) => forfait.nbJours >= filtre.nbJours);
     }
+
     return forfaits;
   }
 }

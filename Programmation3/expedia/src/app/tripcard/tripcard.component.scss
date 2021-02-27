@@ -1,141 +1,169 @@
 .carte {
-    height: 10rem;
-    width: 20rem;
-    background-image: linear-gradient(to right bottom, #74b9ff, #89c6f9, #a3d2f2, #c0dded, #dfe6e9);
-    border: 3px #0984e3 solid;
-    border-radius: 5px;
-    padding: 0.8rem;
-    padding-top: 0;
-    cursor: pointer;
-    position: relative;
+  height: 10rem;
+  width: 20rem;
+  background-image: linear-gradient(
+    to right bottom,
+    #74b9ff,
+    #89c6f9,
+    #a3d2f2,
+    #c0dded,
+    #dfe6e9
+  );
+  border: 3px #0984e3 solid;
+  border-radius: 5px;
+  padding: 0.8rem;
+  padding-top: 0;
+  cursor: pointer;
+  position: relative;
+  //   display: flex;
+  display: grid;
+  grid-template-areas:
+    "description details"
+    "description details";
+
+  .carte-description {
     display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    grid-area: "description";
+    display: grid;
+    grid-template-areas:
+      "destination"
+      "hotel"
+      "star";
 
-    .carte-description {
-        display: flex;
-        flex-direction: column;
-        padding: 0;
+    .destination-depart {
+      font-size: 0.8rem;
+      grid-area: "destination";
+      display: flex;
+      align-items: center;
+
+      .carte-destination,
+      .carte-depart {
+        text-transform: uppercase;
+        color: #636e72;
+        font-weight: 550;
         margin: 0;
+        padding: 0;
+      }
 
-        .destination-depart {
-            display: flex;
-            align-items: center;
-            font-size: 0.8rem;
+      .carte-destination {
+        font-size: 0.8rem;
+      }
 
-            .carte-destination, .carte-depart {
-                text-transform: uppercase;
-                color: #636e72;
-                font-weight: 550;
-            }
-
-            .carte-destination {
-                font-size: 0.8rem;
-            }
-
-            .carte-depart {
-                font-size: 0.8rem;
-                margin-left: 0.6rem;
-            }
-        }
-
-        .carte-hotel {
-            color: #0984e3;
-            font-size: 1.5rem;
-            margin-bottom: 0;
-        }
-
+      .carte-depart {
+        font-size: 0.8rem;
+      }
     }
 
-    .carte-details {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        height: 100%;
-        padding: 0;
-        margin: 0;
-
-        .carte-prix {
-            display: flex;
-            flex-direction: column;
-
-            .prix {
-                color: #0984e3;
-                font-size: 1.8rem;
-                padding-top: 2.5rem;
-                margin-bottom: 0;
-                padding-bottom: 0;
-
-                &.barre {
-                    text-decoration: line-through;
-                }
-            }
-
-            .rabais {
-                font-size: 30px;
-                font-weight: 600;
-                color: red;
-            }
-
-            .inclusions {
-                color: #0984e3;
-            }
-        }
-
-        .carte-duree {
-            display: flex;
-            align-self: flex-end;
-            font-size: 1rem;
-            text-transform: uppercase;
-            color: #636e72;
-
-            .depart {
-                font-size: 0.8rem;
-            }
-
-            .duree {
-                font-size: 0.8rem;
-            }
-        }
+    .carte-hotel {
+      color: #0984e3;
+      font-size: 1.5rem;
+      margin-bottom: 0;
+      grid-area: "hotel";
     }
 
-    .fleche {
+    .star-container {
+      grid-area: "star";
+    }
+  }
+
+  .carte-details {
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // align-items: center;
+    height: 100%;
+    padding: 0;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-areas:
+      "prix"
+      "duree";
+
+    .carte-prix {
+      display: flex;
+      flex-direction: column;
+      grid-area: "prix";
+
+      .prix {
+        color: #0984e3;
+        font-size: 1.8rem;
+        margin-bottom: 0;
+        padding-bottom: 0;
+
+        &.barre {
+          text-decoration: line-through;
+          font-size: 1.3rem;
+        }
+      }
+
+      .rabais {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: red;
+      }
+
+      .inclusions {
+        color: #0984e3;
+      }
+    }
+
+    .carte-duree {
+      //   display: flex;
+      //   align-self: flex-end;
+      font-size: 1rem;
+      text-transform: uppercase;
+      color: #636e72;
+
+      .depart {
+        font-size: 0.8rem;
+        width: 15ch;
+      }
+
+      .duree {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .fleche {
+    position: absolute;
+    clip-path: polygon(30% 0, 100% 50%, 30% 100%, 0 100%, 72% 50%, 0 0);
+    background: rgb(9, 132, 227);
+    top: 50%;
+    right: 15px;
+    height: 4rem;
+    width: 1rem;
+    transform: translateY(-50%);
+    z-index: 8;
+
+    .fleche-container {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      &::before {
+        content: "";
         position: absolute;
-        clip-path: polygon(30% 0, 100% 50%, 30% 100%, 0 100%, 72% 50%, 0 0);
-        background: rgb(9,132,227);
-        top: 50%;
-        right: 15px;
+        right: 0;
         height: 4rem;
         width: 1rem;
-        transform: translateY(-50%);
-        z-index: 8;
-
-        .fleche-container {
-            position: relative;
-            height: 100%;
-            width: 100%;
-            &::before {
-                content: "";
-                position: absolute;
-                right: 0;
-                height: 4rem;
-                width: 1rem;
-                top: -4rem;
-                background-color: #ffffff;
-                z-index: 9;
-                transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-            }
-        }
-
+        top: -4rem;
+        background-color: #ffffff;
+        z-index: 9;
+        transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
     }
+  }
 
-
-    &:hover {
-        .fleche {
-            .fleche-container {
-                &::before {
-                    transform: translateY(100%);
-                }
-            }
+  &:hover {
+    .fleche {
+      .fleche-container {
+        &::before {
+          transform: translateY(100%);
         }
+      }
     }
+  }
 }

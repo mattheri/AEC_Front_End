@@ -98,5 +98,16 @@
         value="{{ forfait.prix }}"
         min="1">
     </mat-form-field>
-    <button (click)="updateForfait(local_data)" mat-raised-button color="primary">Mettre à jour</button>
+    <mat-form-field>
+        <mat-label>
+            Rabais
+        </mat-label>
+        <input 
+        type="number" 
+        matInput
+        (change)="updateRabais($event.target.value)"
+        value="{{ forfait.rabais || 0 }}"
+        min="1">
+    </mat-form-field>
+    <button (click)="updateForfait($event,local_data)" [disabled]="validate()" mat-raised-button color="primary">Mettre à jour</button>
 </form>

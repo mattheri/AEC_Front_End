@@ -35,13 +35,12 @@
 
   <mat-sidenav-container class="example-sidenav-container"
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+    <mat-sidenav #snav [mode]="'over'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <app-sidenavform (filtresChange)="ajoutFiltre($event)"></app-sidenavform>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <!-- <app-trips [filtre]="filtres"></app-trips>
-      <app-administration></app-administration> -->
+      <!-- <app-trips [filtre]="filtres"></app-trips> -->
       <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

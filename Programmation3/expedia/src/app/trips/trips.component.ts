@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Filtre } from 'src/filtre';
 import { Forfait } from 'src/forfait';
 import { ForfaitsService } from '../forfaits.service';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { FiltreService } from '../filtre.service';
 
 @Component({
   selector: 'app-trips',
@@ -12,11 +13,12 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class TripsComponent implements OnInit {
   constructor(
     private forfaitsService: ForfaitsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private currentfiltre: FiltreService
   ) {}
   forfaitsDispo: Forfait[];
 
-  @Input() filtre: Filtre;
+  filtres: Filtre;
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -26,6 +28,8 @@ export class TripsComponent implements OnInit {
         this.getForfaits();
       }
     });
+
+    this.currentfiltre.current.subscribe((nv) => (this.filtres = nv));
   }
 
   getForfaits(param?: string) {

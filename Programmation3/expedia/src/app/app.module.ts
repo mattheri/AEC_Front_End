@@ -37,6 +37,8 @@ import { CreatedialogComponent } from './createdialog/createdialog.component';
 import { GestionForfaitFormAjoutComponent } from './gestion-forfait-form-ajout/gestion-forfait-form-ajout.component';
 import { GraphComponent } from './graph/graph.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { ChartsModule } from 'ng2-charts';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import { MatMenuModule } from '@angular/material/menu';
     CreatedialogComponent,
     GestionForfaitFormAjoutComponent,
     GraphComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,6 +81,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatDialogModule,
     MatTableModule,
     MatMenuModule,
+    ChartsModule,
   ],
   providers: [ForfaitsService],
   bootstrap: [AppComponent],

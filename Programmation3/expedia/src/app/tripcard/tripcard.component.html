@@ -2,7 +2,7 @@
 
             <div class="carte-description">
                 <div class="destination-depart">
-                    <h3 class="carte-destination">{{ forfait.destination }}</h3>
+                    <h3 class="carte-destination">{{ forfait.destination }}</h3>&rarr;
                     <p class="carte-depart">{{ forfait.villeDepart }}</p>
                 </div>
                 <h2 class="carte-hotel">{{ forfait.hotel.nom }}</h2>
@@ -16,7 +16,7 @@
                     <small class="inclusions">Taxes et frais inclus</small>
                 </div>
                 <div class="carte-duree">
-                    <p class="depart">{{ forfait.dateDepart | date: "fullDate" }},</p>
+                    <p class="depart">{{ forfait.dateDepart | date: "longDate" }},</p>
                     <p class="duree">{{ forfait.nbJours }} jours</p>
                 </div>
             </div>

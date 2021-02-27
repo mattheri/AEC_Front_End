@@ -1,24 +1,28 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Filtre } from 'src/filtre';
-import { Option } from "../../options";
+import { Option } from '../../options';
 
 @Component({
   selector: 'app-sidenavform',
   templateUrl: './sidenavform.component.html',
-  styleUrls: ['./sidenavform.component.scss']
+  styleUrls: ['./sidenavform.component.scss'],
 })
 export class SidenavformComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
   filtre: Filtre = {
     choix: [],
-    dateDepart: new Date(Date.now()),
+    dateDepart: 0,
     nbEtoiles: 0,
-    nbJours: 7
-  }
+    nbJours: 0,
+  };
   // Input nombre de jours START
-  choixNbJours: { val: number, text: string }[] = [{ val: 7, text: "7 jours" }, { val: 10, text: "10 jours" }, { val: 14, text: "14 jours" }];
-  nbJours = "7";
+  choixNbJours: { val: number; text: string }[] = [
+    { val: 0, text: 'Tous' },
+    { val: 7, text: '7 jours' },
+    { val: 10, text: '10 jours' },
+    { val: 14, text: '14 jours' },
+  ];
+  nbJours = '7';
   changeNbJours(nv: string) {
     this.filtre.nbJours = parseInt(nv);
     this.emitChange();
@@ -32,18 +36,18 @@ export class SidenavformComponent implements OnInit {
   // Stars slider END
   // Checboxes START
   options: Option[] = [
-    { val: "Spa", completed: false, color: "primary" },
+    { val: 'Spa', completed: false, color: 'primary' },
     {
-      val: "Tout Inclus",
-      color: "primary",
+      val: 'Tout Inclus',
+      color: 'primary',
       completed: false,
       subVal: [
-        { val: "Déjeuner inclus", completed: false, color: "accent" },
-        { val: "Dîner inclus", completed: false, color: "accent" },
-        { val: "Souper inclus", completed: false, color: "accent" },
-        { val: "Alcool Inclus", completed: false, color: "accent" }
-      ]
-    }
+        { val: 'Déjeuner inclus', completed: false, color: 'accent' },
+        { val: 'Dîner inclus', completed: false, color: 'accent' },
+        { val: 'Souper inclus', completed: false, color: 'accent' },
+        { val: 'Alcool Inclus', completed: false, color: 'accent' },
+      ],
+    },
   ];
 
   allChildCheckboxComplete = false;
@@ -53,19 +57,25 @@ export class SidenavformComponent implements OnInit {
   allComplete(completed: boolean, unit: Option) {
     if (unit.subVal) {
       if (completed) {
-        (unit.subVal as Option[]).forEach(option => option.completed = true);
+        (unit.subVal as Option[]).forEach(
+          (option) => (option.completed = true)
+        );
         this.allChildCheckboxComplete = true;
         this.indeterminate = false;
-        unit.subVal.forEach(option => this.filtre.choix.push(option));
+        unit.subVal.forEach((option) => this.filtre.choix.push(option));
         this.emitChange();
-      };
+      }
       if (!completed) {
-        (unit.subVal as Option[]).forEach(option => option.completed = false);
+        (unit.subVal as Option[]).forEach(
+          (option) => (option.completed = false)
+        );
         this.allChildCheckboxComplete = false;
         this.indeterminate = false;
-        unit.subVal.forEach(option => this.filtre.choix.splice(this.filtre.choix.indexOf(option), 1));
+        unit.subVal.forEach((option) =>
+          this.filtre.choix.splice(this.filtre.choix.indexOf(option), 1)
+        );
         this.emitChange();
-      };
+      }
     }
     if (!unit.subVal) {
       if (completed) {
@@ -77,14 +87,18 @@ export class SidenavformComponent implements OnInit {
   }
 
   checkIfAllComplete() {
-    return this.options.filter(option => option.subVal)[0].subVal.every(option => option.completed);
+    return this.options
+      .filter((option) => option.subVal)[0]
+      .subVal.every((option) => option.completed);
   }
 
   checkIfNoneComplete() {
-    return this.options.filter(option => option.subVal)[0].subVal.every(option => !option.completed);
+    return this.options
+      .filter((option) => option.subVal)[0]
+      .subVal.every((option) => !option.completed);
   }
 
-  changeToIndeterminate(completed: boolean, unit: Option) {    
+  changeToIndeterminate(completed: boolean, unit: Option) {
     unit.completed = completed;
     this.indeterminate = true;
     this.allChildCheckboxComplete = false;
@@ -96,17 +110,25 @@ export class SidenavformComponent implements OnInit {
       this.removeCheckbox(unit);
     }
 
-    if (this.options.filter(option => option.subVal)[0].subVal.every(option => option.completed)) {
+    if (
+      this.options
+        .filter((option) => option.subVal)[0]
+        .subVal.every((option) => option.completed)
+    ) {
       this.indeterminate = false;
       this.allChildCheckboxComplete = true;
-      this.options.filter(option => option.subVal)[0].completed = true;
+      this.options.filter((option) => option.subVal)[0].completed = true;
     }
 
-    if (this.options.filter(option => option.subVal)[0].subVal.every(option => option.completed === false)) {
+    if (
+      this.options
+        .filter((option) => option.subVal)[0]
+        .subVal.every((option) => option.completed === false)
+    ) {
       this.indeterminate = false;
       this.allChildCheckboxComplete = false;
-      this.options.filter(option => option.subVal)[0].completed = false;
-    };
+      this.options.filter((option) => option.subVal)[0].completed = false;
+    }
   }
 
   changeCheckbox(nv: Option) {
@@ -135,7 +157,5 @@ export class SidenavformComponent implements OnInit {
     this.filtresChange.emit(this.filtre);
   }
   // Change Event END
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

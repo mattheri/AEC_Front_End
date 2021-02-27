@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdministrationComponent } from './administration/administration.component';
 import { TripsComponent } from './trips/trips.component';
 import { GraphComponent } from './graph/graph.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   { path: '', component: TripsComponent },
   {
     path: 'administration',
-    component: AdministrationComponent,
+    component: AdminComponent,
     children: [
       { path: 'panel', component: AdministrationComponent },
       { path: 'graph', component: GraphComponent },

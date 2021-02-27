@@ -92,5 +92,15 @@
         (change)="updatePrix($event.target.value)"
         min="1">
     </mat-form-field>
-    <button (click)="ajoutForfait(local_data)" mat-raised-button color="primary">Ajouter</button>
+    <mat-form-field>
+        <mat-label>
+            Rabais
+        </mat-label>
+        <input 
+        type="number" 
+        matInput
+        (change)="updateRabais($event.target.value)"
+        min="1">
+    </mat-form-field>
+    <button (click)="ajoutForfait($event, local_data)" [disabled]="validate()" mat-raised-button color="primary">Ajouter</button>
 </form>

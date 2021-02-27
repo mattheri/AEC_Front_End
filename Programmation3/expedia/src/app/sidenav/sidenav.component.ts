@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Filtre } from 'src/filtre';
+import { FiltreService } from '../filtre.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -19,14 +20,18 @@ export class SidenavComponent implements OnInit {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher,
+    private filtre: FiltreService
+  ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener('change', this._mobileQueryListener);
   }
 
   ajoutFiltre(nv: Filtre) {
-    this.filtres = nv;
+    this.filtre.change(nv);
   }
 
   ngOnDestroy(): void {
