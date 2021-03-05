@@ -102,5 +102,6 @@
         (change)="updateRabais($event.target.value)"
         min="1">
     </mat-form-field>
+    <mat-checkbox (change)="updateVedette($event.checked)">Forfait vedette</mat-checkbox>
     <button (click)="ajoutForfait($event, local_data)" [disabled]="validate()" mat-raised-button color="primary">Ajouter</button>
 </form>

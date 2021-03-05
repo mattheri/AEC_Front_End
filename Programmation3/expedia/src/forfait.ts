@@ -11,4 +11,5 @@ export interface Forfait {
   prix: number;
   nbJours: number;
   rabais?: number;
+  vedette?: boolean;
 }

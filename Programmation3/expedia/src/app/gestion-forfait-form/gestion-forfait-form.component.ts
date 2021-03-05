@@ -45,6 +45,7 @@ export class GestionForfaitFOrmComponent implements OnInit {
     prix: 0,
     villeDepart: '',
     rabais: 0,
+    vedette: false,
   };
 
   updateDestination(value: string) {
@@ -90,13 +91,15 @@ export class GestionForfaitFOrmComponent implements OnInit {
       ).toFixed(0)
     );
   }
+  updateVedette(value: boolean) {
+    this.local_data.vedette = value;
+  }
 
   updateForfait(event, data: Forfait) {
     event.preventDefault();
     this.forfaitsService
       .updateForfait(data, this.forfait._id)
       .subscribe((result) => {
-        console.log(result);
         this.dialog.closeAll();
       });
   }

@@ -109,5 +109,6 @@
         value="{{ forfait.rabais || 0 }}"
         min="1">
     </mat-form-field>
+    <mat-checkbox checked="{{ forfait.vedette }}" (change)="updateVedette($event.checked)">Forfait vedette</mat-checkbox>
     <button (click)="updateForfait($event,local_data)" [disabled]="validate()" mat-raised-button color="primary">Mettre à jour</button>
 </form>

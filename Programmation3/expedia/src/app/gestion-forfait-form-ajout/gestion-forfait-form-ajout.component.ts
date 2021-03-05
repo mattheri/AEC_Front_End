@@ -92,6 +92,9 @@ export class GestionForfaitFormAjoutComponent implements OnInit {
       ).toFixed(0)
     );
   }
+  updateVedette(value: boolean) {
+    this.local_data.vedette = value;
+  }
 
   ajoutForfait(event, forfait: Forfait) {
     event.preventDefault();

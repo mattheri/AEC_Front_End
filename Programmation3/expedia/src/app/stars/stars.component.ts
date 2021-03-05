@@ -23,6 +23,9 @@ export class StarsComponent implements OnInit {
       for (let i = 4; i > +this.etoiles; i--) {
         this.etoile.push('star empty');
       }
+      if (this.etoiles === 4) {
+        this.etoile.push('star empty');
+      }
     }
   }
 }

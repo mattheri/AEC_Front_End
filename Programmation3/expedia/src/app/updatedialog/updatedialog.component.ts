@@ -13,7 +13,6 @@ export class UpdatedialogComponent implements OnInit {
     public dialogRef: MatDialogRef<UpdatedialogComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: Forfait
   ) {
-    console.log(data);
     this.local_data = data;
   }
 

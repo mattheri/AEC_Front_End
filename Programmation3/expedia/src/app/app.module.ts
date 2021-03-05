@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ForfaitsService } from './forfaits.service';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +39,7 @@ import { GraphComponent } from './graph/graph.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { ChartsModule } from 'ng2-charts';
 import { AdminComponent } from './admin/admin.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -58,9 +59,11 @@ import { AdminComponent } from './admin/admin.component';
     GestionForfaitFormAjoutComponent,
     GraphComponent,
     AdminComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
